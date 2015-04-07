@@ -14,5 +14,19 @@
 		"dated": "April 06, 2015 02:44 PM",
 		"slug": "introducing-bloggercms",
 		"status": "publised"
+	},
+	{
+		"title": "How to Add Disqus Commenting to Posts",
+		"tags": [
+			"tutorial",
+			"disqus",
+			"post"
+		],
+		"category": "Tutorial",
+		"body": "To be updated...",
+		"addpost": "addpost",
+		"dated": "April 07, 2015 07:52 PM",
+		"slug": "how-to-add-disqus-commenting-to-posts",
+		"status": "publised"
 	}
 ]

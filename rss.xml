@@ -6,6 +6,12 @@
 <description>BloggerCMS Official Blog</description>
 <language>en-us</language>
 <item>
+<title>How to Add Disqus Commenting to Posts</title>
+<description><p>To be updated...</p></description>
+<link>https://bloggercms.github.io/post/how-to-add-disqus-commenting-to-posts.html</link>
+<pubDate>Tue, 07 Apr 2015 19:52:00 +0200</pubDate>
+</item>
+<item>
 <title>Introducing BloggerCMS !</title>
 <description><h2>Introduction</h2>
 <p>BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax unlike other static site generators which is time-consuming. The created blogs become fully potable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. </p>

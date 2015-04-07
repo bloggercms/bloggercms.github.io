@@ -1,9 +1,11 @@
-[
-	"bloggercms",
-	"cms",
-	"admin",
-	"php",
-	"intro",
-	"start",
-	"tutorial"
-]
+{
+	"0": "bloggercms",
+	"1": "cms",
+	"2": "admin",
+	"3": "php",
+	"4": "intro",
+	"5": "start",
+	"6": "tutorial",
+	"8": "disqus",
+	"9": "post"
+}
