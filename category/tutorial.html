@@ -72,7 +72,38 @@
                     <span class="glyphicon glyphicon-time"></span> April 07, 2015 07:52 PM
                 
                         <hr>
-                        <p class="post-content"><p>To be updated...</p></p>
+                        <p class="post-content"><p>If you notice, under each post on this blog there is Comments section powered by excellent <a href="https://disqus.com/">Disqus</a>:</p>
+<p><img src="https://bloggercms.github.io/images/142843076855241fb037206.gif" alt="enter image description here" /></p>
+<hr />
+<p>To add Disqus commenting to your blog, please follow these steps:</p>
+<ul>
+<li><a href="https://disqus.com/">Create an account on Disqus</a></li>
+<li>Once you have registered, login and then go to <a href="https://disqus.com/admin/create/">Add Disqus to your site</a> page and fill in the details of your blog</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/14284312345524218240bc8.png" alt="enter image description here" /></p>
+<p>On the next page, choose <strong>Universal Code</strong> option:</p>
+<p><img src="https://bloggercms.github.io/images/1428431430552422464a84a.gif" alt="enter image description here" /></p>
+<p>They would give you bunch of code like:</p>
+<pre><code>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'bloggercms';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</code></pre>
+<p>From that code, we are only interested in <strong>disqus_shortname</strong>. In above code it appears here:</p>
+<pre><code>var disqus_shortname = 'bloggercms';</code></pre>
+<p>In this case, our shortname is <strong>bloggercms</strong> which is all we need not whole code. We need to update this shortname (bloggercms) in BloggerCMS settings page to enable Disqus commenting.</p>
+<p>Go to Settings page and on General Settings tab specify your Disqus unique/shortname for the <strong>Disqus Shortname</strong> field and hit Update button:</p>
+<p><img src="https://bloggercms.github.io/images/14284319185524242e2c2cd.gif" alt="enter image description here" /></p>
+<p>And that's it, your all posts will now have Disqus commenting below them. </p>
+<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p></p>
                         <br/>
                 
                         <div class="post-info">
@@ -82,9 +113,9 @@
                 
                             <span class="glyphicon glyphicon-bookmark"></span>
                 
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
                                 <a class="lowercase" href="https://bloggercms.github.io/tag/disqus.html">disqus</a>&nbsp;&nbsp;
                                 <a class="lowercase" href="https://bloggercms.github.io/tag/post.html">post</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
                         </div>
                 
                     <hr>

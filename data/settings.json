@@ -6,6 +6,6 @@
 	"number_posts": "10",
 	"layout": "default",
 	"theme": "slate.min.css",
-	"disqus": "codeinphp",
+	"disqus": "bloggercms",
 	"only_titles": ""
 }
