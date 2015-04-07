@@ -68,7 +68,47 @@
             <hr/>
 
             <p class="page-content">
-                <p>to be updated...</p>
+                <blockquote>
+<h2>Prerequisite</h2>
+<p>You can run BloggerCMS on your web host or on your local PC; in both
+cases you can create your blog and upload it where you want. In either
+case we expect you have <strong>PHP available and also mod_rewrite module
+activated</strong>. If you want to run BloggerCMS on your local computer, you
+can go for <a href="http://en.wikipedia.org/wiki/XAMPP">XAMPP</a>.</p>
+</blockquote>
+<p>In this guide, we will start from scratch by downloading and installing BloggerCMS and adding posts and pages and have a blog up and running. The whole process is no longer than 10 minutes but reading and then following takes bit of time of course.</p>
+<h2>Downloading BloggerCMS</h2>
+<p>Head over to <a href="https://github.com/sarfraznawaz2005/BloggerCMS">BloggerCMS Github Repository</a> and download BloggerCMS either by <a href="http://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#Cloning-an-Existing-Repository">clonning it's repository</a> or <a href="https://github.com/sarfraznawaz2005/BloggerCMS/archive/master.zip">direct zip download</a> option.</p>
+<h2>Installing BloggerCMS</h2>
+<p>You can either install BloggerCMS on your local PC or on your web hosting provider. In either case, you can generate a blog. In this guide though, we explain how to install it on local PC and be able to generate a blog and upload it where we want.</p>
+<p>We assume, you have already downloaded BloggerCMS and have installed XAMPP or similar solution. Please follow these steps to install it:</p>
+<ul>
+<li>Move the BloggerCMS folder to your web root folder usually named <strong>www</strong> or <strong>htdocs</strong>.</li>
+<li>Visit the BloggerCMS url on localhost. It's url will be like <strong><a href="http://localhost/BloggerCMS">http://localhost/BloggerCMS</a></strong> assuming folder name is <strong>BloggerCMS</strong>. You should see BloggerCMS dashboard page like shown below:</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/14284143735523dfa5c5e4f.png" alt="Dashboard" /></p>
+<h2>Updating Settings</h2>
+<p>We now need to update required <strong>Blog URL</strong> field in settings page. Go to settings page by clicking on its link:</p>
+<p><img src="https://bloggercms.github.io/images/14284145465523e052c6d86.gif" alt="enter image description here" /></p>
+<p>And then specify Blog URL field to be <strong><a href="http://localhost/BloggerCMS/public/">http://localhost/BloggerCMS/public/</a></strong>.</p>
+<blockquote>
+<p><strong>Note</strong>: This is just an example, in real world case, for <strong>Blog URL</strong>
+field, you would specify actual your of your blog where you upload it
+something like <strong><a href="http://mydomain.com/blog">http://mydomain.com/blog</a></strong>. For this very blog, it is
+specified like <strong><a href="https://bloggercms.github.io">https://bloggercms.github.io</a></strong> since our blog is
+hosted on <a href="https://bloggercms.github.io">https://bloggercms.github.io</a>.</p>
+</blockquote>
+<p><img src="https://bloggercms.github.io/images/14284178245523ed20d5205.gif" alt="enter image description here" /></p>
+<p>You should also update other blog settings <strong>Blog Title</strong>, <strong>Blog Tagline</strong> and <strong>Author Name</strong> and finally click on the <strong>Update</strong> button on the bottom. You can also <strong>Follow Settings</strong> and <strong>Custom Values</strong> (custom values can be embedded in layout) on the settings page.</p>
+<h2>Generating Static Blog</h2>
+<p>To generate your fully functional static blog, click on the <strong>Generate Blog</strong> on the top right:</p>
+<p><img src="https://bloggercms.github.io/images/14284173025523eb16e9ab9.gif" alt="enter image description here" /></p>
+<p>You will see success message like this:</p>
+<p><img src="https://bloggercms.github.io/images/14284171195523ea5f25fd0.gif" alt="enter image description here" /></p>
+<p>Check out your <strong>BloggerCMS/public</strong> folder which was empty before should now contain your blog files generated:</p>
+<p><img src="https://bloggercms.github.io/images/14284175465523ec0a4da50.gif" alt="enter image description here" /></p>
+<p>To see the blog, visit <strong><a href="http://localhost/BloggerCMS/public">http://localhost/BloggerCMS/public</a></strong> in your browser and you should see your blog:</p>
+<p><img src="https://bloggercms.github.io/images/14284182715523eedf19057.png" alt="enter image description here" /></p>
             </p>
         </div>
 
@@ -81,7 +121,7 @@
             <!-- Follow Panel -->
                 <div class="panel panel-primary text-center">
                     <div class="panel-heading">
-                        <strong>Follow Me</strong>
+                        <strong>Follow BloggerCMS Blog</strong>
                     </div>
         
                     <div class="panel-body">
