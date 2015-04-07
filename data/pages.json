@@ -6,7 +6,7 @@
 	},
 	{
 		"title": "About",
-		"body": "BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing [Markdown][1] syntax unlike other static site generators which is time-consuming. The created blogs become fully potable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. \r\n\r\n[**Read More**][2]\r\n\r\n\r\n  [1]: http:\/\/en.wikipedia.org\/wiki\/Markdown\r\n  [2]: https:\/\/codeinphp.github.io\/bloggercms-demo\/post\/introducing-bloggercms.html",
+		"body": "BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing [Markdown][1] syntax unlike other static site generators which is time-consuming. The created blogs become fully potable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. \r\n\r\n[**Read More**][2]\r\n\r\n\r\n  [1]: http:\/\/en.wikipedia.org\/wiki\/Markdown\r\n  [2]: https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html",
 		"slug": "about"
 	},
 	{
