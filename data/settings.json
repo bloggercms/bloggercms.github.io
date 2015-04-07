@@ -1,0 +1,11 @@
+{
+	"url": "https:\/\/bloggercms.github.io",
+	"title": "BloggerCMS Blog",
+	"tagline": "BloggerCMS Official Blog",
+	"author": "BloggerCMS",
+	"number_posts": "10",
+	"layout": "default",
+	"theme": "slate.min.css",
+	"disqus": "codeinphp",
+	"only_titles": ""
+}
