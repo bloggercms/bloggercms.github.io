@@ -7,5 +7,8 @@
 	"start",
 	"tutorial",
 	"disqus",
-	"post"
+	"post",
+	"image",
+	"page",
+	"imagemanager"
 ]

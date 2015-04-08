@@ -40,6 +40,24 @@
 	},
 	"posts": [
 		{
+			"title": "How to Add Images to Posts and Pages",
+			"tags": [
+				"image",
+				"imagemanager",
+				"page",
+				"post",
+				"tutorial"
+			],
+			"category": "Tutorial",
+			"body": "<p>You can use <strong>Image Manager<\/strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:<\/p>\n<ul>\n<li>Go to Image Manager page<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516963552570634aff2.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>Select your image and click on the green Upload button<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516967552570678d937.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>When you hit the upload button, image will be uploaded in <strong>public\/images<\/strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:<\/li>\n<\/ul>\n<p><a href=\"https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif\">https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif<\/a><\/p>\n<ul>\n<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G<\/kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14285176465525730e530cc.gif\" alt=\"enter image description here\" \/><\/p>",
+			"savedraft": "savedraft",
+			"dated": "April 08, 2015 08:28 PM",
+			"slug": "how-to-add-images-to-posts-and-pages",
+			"status": "publised",
+			"addpost": "addpost",
+			"showbody": true
+		},
+		{
 			"title": "How to Add Disqus Commenting to Posts",
 			"tags": [
 				"disqus",
@@ -78,6 +96,24 @@
 	],
 	"latestPosts": [
 		{
+			"title": "How to Add Images to Posts and Pages",
+			"tags": [
+				"image",
+				"imagemanager",
+				"page",
+				"post",
+				"tutorial"
+			],
+			"category": "Tutorial",
+			"body": "<p>You can use <strong>Image Manager<\/strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:<\/p>\n<ul>\n<li>Go to Image Manager page<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516963552570634aff2.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>Select your image and click on the green Upload button<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516967552570678d937.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>When you hit the upload button, image will be uploaded in <strong>public\/images<\/strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:<\/li>\n<\/ul>\n<p><a href=\"https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif\">https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif<\/a><\/p>\n<ul>\n<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G<\/kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14285176465525730e530cc.gif\" alt=\"enter image description here\" \/><\/p>",
+			"savedraft": "savedraft",
+			"dated": "April 08, 2015 08:28 PM",
+			"slug": "how-to-add-images-to-posts-and-pages",
+			"status": "publised",
+			"addpost": "addpost",
+			"showbody": true
+		},
+		{
 			"title": "How to Add Disqus Commenting to Posts",
 			"tags": [
 				"disqus",
@@ -112,6 +148,24 @@
 	],
 	"homePosts": [
 		{
+			"title": "How to Add Images to Posts and Pages",
+			"tags": [
+				"image",
+				"imagemanager",
+				"page",
+				"post",
+				"tutorial"
+			],
+			"category": "Tutorial",
+			"body": "<p>You can use <strong>Image Manager<\/strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:<\/p>\n<ul>\n<li>Go to Image Manager page<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516963552570634aff2.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>Select your image and click on the green Upload button<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516967552570678d937.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>When you hit the upload button, image will be uploaded in <strong>public\/images<\/strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:<\/li>\n<\/ul>\n<p><a href=\"https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif\">https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif<\/a><\/p>\n<ul>\n<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G<\/kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14285176465525730e530cc.gif\" alt=\"enter image description here\" \/><\/p>",
+			"savedraft": "savedraft",
+			"dated": "April 08, 2015 08:28 PM",
+			"slug": "how-to-add-images-to-posts-and-pages",
+			"status": "publised",
+			"addpost": "addpost",
+			"showbody": true
+		},
+		{
 			"title": "How to Add Disqus Commenting to Posts",
 			"tags": [
 				"disqus",
@@ -144,6 +198,6 @@
 			"showbody": true
 		}
 	],
-	"tagsCloud": "<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/admin.html\" title=\"'admin' returned a count of 0\">admin<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/bloggercms.html\" title=\"'bloggercms' returned a count of 0\">bloggercms<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/cms.html\" title=\"'cms' returned a count of 0\">cms<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/disqus.html\" title=\"'disqus' returned a count of 0\">disqus<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/intro.html\" title=\"'intro' returned a count of 0\">intro<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/php.html\" title=\"'php' returned a count of 0\">php<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/post.html\" title=\"'post' returned a count of 0\">post<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/tutorial.html\" title=\"'tutorial' returned a count of 0\">tutorial<\/a>\n",
+	"tagsCloud": "<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/admin.html\" title=\"'admin' returned a count of 0\">admin<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/bloggercms.html\" title=\"'bloggercms' returned a count of 0\">bloggercms<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/cms.html\" title=\"'cms' returned a count of 0\">cms<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/disqus.html\" title=\"'disqus' returned a count of 0\">disqus<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/image.html\" title=\"'image' returned a count of 0\">image<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/imagemanager.html\" title=\"'imagemanager' returned a count of 0\">imagemanager<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/intro.html\" title=\"'intro' returned a count of 0\">intro<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/page.html\" title=\"'page' returned a count of 0\">page<\/a>\n<a style=\"font-size: 12px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/php.html\" title=\"'php' returned a count of 0\">php<\/a>\n<a style=\"font-size: 30px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/post.html\" title=\"'post' returned a count of 1\">post<\/a>\n<a style=\"font-size: 30px\" class=\"tag_cloud\" href=\"https:\/\/bloggercms.github.io\/tag\/tutorial.html\" title=\"'tutorial' returned a count of 1\">tutorial<\/a>\n",
 	"archives": "<ul class=\"archives list-group\"><li class=\"list-group-item archive_link\"><a href=\"https:\/\/bloggercms.github.io\/archive\/april-2015\">April 2015<\/a><\/li><\/ul>"
 }
