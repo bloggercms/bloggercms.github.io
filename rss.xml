@@ -19,7 +19,7 @@
 <ul>
 <li>When you hit the upload button, image will be uploaded in <strong>public/images</strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:</li>
 </ul>
-<p><a href="https://bloggercms.github.io/images/1428517370552571fa88926.gif">https://bloggercms.github.io/images/1428517370552571fa88926.gif</a></p>
+<p><img src="https://bloggercms.github.io/images/1428517370552571fa88926.gif" alt="enter image description here" /></p>
 <ul>
 <li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G</kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:</li>
 </ul>
