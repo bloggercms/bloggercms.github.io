@@ -45,5 +45,18 @@
 		"dated": "April 06, 2015 02:44 PM",
 		"slug": "introducing-bloggercms",
 		"status": "publised"
+	},
+	{
+		"title": "New Layout: Initializr",
+		"tags": [
+			"layout",
+			"initializr"
+		],
+		"category": "Layouts",
+		"body": "Here is new layout based on [Responsive][1] template of [Initializr][2] ([see its features][3]) for the BloggerCMS:\r\n\r\n![enter image description here][4]\r\n\r\n\r\n----------\r\n\r\n\r\n## How to Use It ##\r\n\r\n - [Download the layout][5]\r\n - Extract it to **layouts** folder\r\n - Go to *Settings > General Settings* and for the field **Layout Name**, specify it's folder name eg **initializr** and that's it.\r\n\r\n> **Note:** You can always change *folder name* for the layout and then specify that as **Layout Name**\r\n\r\n  [1]: http:\/\/www.initializr.com\/try\r\n  [2]: http:\/\/www.initializr.com\/\r\n  [3]: http:\/\/verekia.com\/initializr\/responsive-template\r\n  [4]: https:\/\/bloggercms.github.io\/images\/14285298795525a2d72b648.png\r\n  [5]: https:\/\/bloggercms.github.io\/themes\/initializr.zip",
+		"addpost": "addpost",
+		"dated": "April 09, 2015 12:05 AM",
+		"slug": "new-layout-initializr",
+		"status": "publised"
 	}
 ]
