@@ -7,5 +7,6 @@
 	"layout": "default",
 	"theme": "slate.min.css",
 	"disqus": "bloggercms",
+	"analytics": "",
 	"only_titles": ""
 }
