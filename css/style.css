@@ -1,13 +1,5 @@
 body {
     margin-top: 75px;
-    font-family: "Open Sans", Verdana, Tahoma, Segoe, sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-}
-
-.post-content, .page-content {
-    font-size: 14px;
-    line-height: 24px;
 }
 
 .main-content {
