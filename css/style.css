@@ -2,7 +2,7 @@ body {
     margin-top: 75px;
 }
 
-.main-content {
+.post-content, .page-content {
     margin-bottom: 20px;
     line-height: 22px;
 }
