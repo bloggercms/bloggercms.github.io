@@ -4,7 +4,7 @@
 	"tagline": "BloggerCMS Official Blog",
 	"author": "BloggerCMS",
 	"number_posts": "10",
-	"layout": "default",
+	"layout": "initializr",
 	"theme": "slate.min.css",
 	"disqus": "bloggercms",
 	"analytics": "",

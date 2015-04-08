@@ -1,7 +1,3 @@
-/**
- * Created by Sarfraz on 4/6/2015.
- */
-
 $(function () {
 
     ////////////// EDIT BELOW FOUR VARS ///////////////
@@ -10,7 +6,7 @@ $(function () {
     // class/id/selector of search button
     var $searchButtonSelector = $('.searchButton');
     // class/id/selector for element where results will show
-    var $searchResultsSelector = $('.main-content');
+    var $searchResultsSelector = $('article');
     ///////////////////////////////////////////////////
 
     // now search for blog posts
@@ -35,7 +31,7 @@ $(function () {
                     if (post.title.search(queryRegex) != -1 || postBody.search(queryRegex) != -1) {
                         var slug = post.title.replace(/[^a-zA-Z0-9\/_|+ -]/, '');
                         slug = $.trim(slug).toLowerCase();
-                        slug = slug.replace(/\s+/g,' ');
+                        slug = slug.replace(/\s+/g, ' ');
                         slug = slug.replace(/\W/g, ' ');
                         slug = slug.replace(/\s+/g, '-');
 
