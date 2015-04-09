@@ -106,7 +106,29 @@
 <p>Go to Settings page and on General Settings tab specify your Disqus unique/shortname for the <strong>Disqus Shortname</strong> field and hit Update button:</p>
 <p><img src="https://bloggercms.github.io/images/14284319185524242e2c2cd.gif" alt="enter image description here" /></p>
 <p>And that's it, your all posts will now have Disqus commenting below them. </p>
-<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p></p>
+<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p>
+<hr />
+<h2>Adding Disqs to Custom BloggerCMS Layouts</h2>
+<p>If you want create custom layout for BloggerCMS and want to add Disqus commenting, just put below snippet at appropriate place in post.mustache file:</p>
+<pre><code>&lt;!-- Comment form --&gt;
+&lt;div class="well"&gt;
+    &lt;div id="disqus_thread"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        var disqus_shortname = '{{settings.disqus}}'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    &lt;/script&gt;
+    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;Comments
+        powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+    &lt;a href="http://disqus.com" class="dsq-brlink"&gt;Comments powered by
+        &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre></p>
                         <br/>
                 
                         <div class="post-info">
