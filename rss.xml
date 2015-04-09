@@ -16,6 +16,9 @@
 &lt;/script&gt;
 
 &lt;script src="{{settings.url}}/js/search.js"&gt;&lt;/script&gt;</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Make sure to include jQuery before search.js file.</p>
+</blockquote>
 <p>Open search.js file in some text editor and you will see it contains:</p>
 <pre><code>$(function () {
 
