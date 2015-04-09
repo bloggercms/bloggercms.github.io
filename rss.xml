@@ -7,7 +7,7 @@
 <language>en-us</language>
 <item>
 <title>How to Create a Layout for BloggerCMS</title>
-<description><p>In the [last post][1], I shared a new layout based on [Responsive][2] template of [Initializr][3]. For the sake of this tutorial, let's see how we can convert this Initializr template into a BloggerCMS layout.</p>
+<description><![CDATA[<p>In the [last post][1], I shared a new layout based on [Responsive][2] template of [Initializr][3]. For the sake of this tutorial, let's see how we can convert this Initializr template into a BloggerCMS layout.</p>
 <h3>What You Need to Know</h3>
 <ul>
 <li>Basics of HTML and CSS</li>
@@ -853,13 +853,13 @@ And that concludes the creation of a template, of course explaining each and eve
   [14]: http://www.initializr.com/
   [15]: http://www.initializr.com/try
   [16]: https://mustache.github.io/
-  [17]: https://bloggercms.github.io/post/new-layout-initializr.html</description>
+  [17]: https://bloggercms.github.io/post/new-layout-initializr.html]]></description>
 <link>https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html</link>
 <pubDate>Thu, 09 Apr 2015 11:41:00 +0200</pubDate>
 </item>
 <item>
 <title>New Layout: Initializr</title>
-<description><p>Here is new layout based on <a href="http://www.initializr.com/try">Responsive</a> template of <a href="http://www.initializr.com/">Initializr</a> (<a href="http://verekia.com/initializr/responsive-template">see its features</a>) for the BloggerCMS:</p>
+<description><![CDATA[<p>Here is new layout based on <a href="http://www.initializr.com/try">Responsive</a> template of <a href="http://www.initializr.com/">Initializr</a> (<a href="http://verekia.com/initializr/responsive-template">see its features</a>) for the BloggerCMS:</p>
 <p><img src="https://bloggercms.github.io/images/14285298795525a2d72b648.png" alt="enter image description here" /></p>
 <hr />
 <h2>How to Use It</h2>
@@ -872,13 +872,13 @@ And that concludes the creation of a template, of course explaining each and eve
 <p><strong>Note:</strong> You can always change <em>folder name</em> for the layout and then specify that as <strong>Layout Name</strong></p>
 </blockquote>
 <h2>How was it created ?</h2>
-<p>See <a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></p></description>
+<p>See <a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></p>]]></description>
 <link>https://bloggercms.github.io/post/new-layout-initializr.html</link>
 <pubDate>Thu, 09 Apr 2015 00:05:00 +0200</pubDate>
 </item>
 <item>
 <title>How to Add Images to Posts and Pages</title>
-<description><p>You can use <strong>Image Manager</strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:</p>
+<description><![CDATA[<p>You can use <strong>Image Manager</strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:</p>
 <ul>
 <li>Go to Image Manager page</li>
 </ul>
@@ -894,13 +894,13 @@ And that concludes the creation of a template, of course explaining each and eve
 <ul>
 <li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G</kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:</li>
 </ul>
-<p><img src="https://bloggercms.github.io/images/14285176465525730e530cc.gif" alt="enter image description here" /></p></description>
+<p><img src="https://bloggercms.github.io/images/14285176465525730e530cc.gif" alt="enter image description here" /></p>]]></description>
 <link>https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html</link>
 <pubDate>Wed, 08 Apr 2015 20:28:00 +0200</pubDate>
 </item>
 <item>
 <title>How to Add Disqus Commenting to Posts</title>
-<description><p>If you notice, under each post on this blog there is Comments section powered by excellent <a href="https://disqus.com/">Disqus</a>:</p>
+<description><![CDATA[<p>If you notice, under each post on this blog there is Comments section powered by excellent <a href="https://disqus.com/">Disqus</a>:</p>
 <p><img src="https://bloggercms.github.io/images/142843076855241fb037206.gif" alt="enter image description here" /></p>
 <hr />
 <p>To add Disqus commenting to your blog, please follow these steps:</p>
@@ -931,13 +931,13 @@ And that concludes the creation of a template, of course explaining each and eve
 <p>Go to Settings page and on General Settings tab specify your Disqus unique/shortname for the <strong>Disqus Shortname</strong> field and hit Update button:</p>
 <p><img src="https://bloggercms.github.io/images/14284319185524242e2c2cd.gif" alt="enter image description here" /></p>
 <p>And that's it, your all posts will now have Disqus commenting below them. </p>
-<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p></description>
+<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p>]]></description>
 <link>https://bloggercms.github.io/post/how-to-add-disqus-commenting-to-posts.html</link>
 <pubDate>Tue, 07 Apr 2015 19:52:00 +0200</pubDate>
 </item>
 <item>
 <title>Introducing BloggerCMS !</title>
-<description><h2>Introduction</h2>
+<description><![CDATA[<h2>Introduction</h2>
 <p>BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax unlike other static site generators which is time-consuming. The created blogs become fully portable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. </p>
 <p>To deploy your blog, all you need is upload the static blog generated by BloggerCMS to your web host and see it in action. You don't need any server-side language support or database on your hosting provider because everything generated by BloggerCMS is pure HTML. You can also host your blog on <a href="https://pages.github.com/">Github</a> (this blog demo runs on github), <a href="http://www.dropboxwiki.com/tips-and-tricks/host-websites-with-dropbox">Dropbox</a> or any other service you like. The good thing is that you can easily backup your blog too because it's just a folder containing your blog. </p>
 <p>BloggerCMS comes with fully responsive blog template based on famous <a href="http://getbootstrap.com/">Twitter Bootstrap</a> with quite few themes to choose from. You can also create your own blog layouts, all you need to know is HTML and basics of <a href="https://mustache.github.io/">Mustache</a> template engine.</p>
@@ -979,7 +979,7 @@ And that concludes the creation of a template, of course explaining each and eve
 <p><img src="https://bloggercms.github.io/images/14284049615523bae133905.png" alt="Images Manager" /></p>
 <hr />
 <h2>Getting Started</h2>
-<p><a href="https://bloggercms.github.io/page/get-started.html">Read Getting Started Guide</a></p></description>
+<p><a href="https://bloggercms.github.io/page/get-started.html">Read Getting Started Guide</a></p>]]></description>
 <link>https://bloggercms.github.io/post/introducing-bloggercms.html</link>
 <pubDate>Mon, 06 Apr 2015 14:44:00 +0200</pubDate>
 </item>
