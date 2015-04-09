@@ -38,7 +38,7 @@ mustache extension.</p>
 <ul>
 <li>When creating your custom layouts, you should follow the same naming for all *<strong>.mustache</strong> files present in the layout root folder. For example, you cannot say <strong>myarchive.mustache</strong> for <strong>archive.mustache</strong>.</li>
 <li>Layout must contain a required <strong>partials</strong> folder. Inside <strong>partials</strong> folder, you are not bound with naming convention eg you can name your mustache partials anything like <strong>header.mustache</strong> or <strong>myheader.mustache</strong> - any name you can use.</li>
-<li>BloggerCMS will automatically convert all your <strong>*.mustache*<em> files into </em></strong>.html*** files</li>
+<li>BloggerCMS will automatically convert all your .mustache files into .html files</li>
 </ul>
 <h3>Layout Variables</h3>
 <p>In your custom layouts, you can use these mustache template variables:</p>
