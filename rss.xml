@@ -7,28 +7,28 @@
 <language>en-us</language>
 <item>
 <title>How to Create a Layout for BloggerCMS</title>
-<description><![CDATA[<p>In the [last post][1], I shared a new layout based on [Responsive][2] template of [Initializr][3]. For the sake of this tutorial, let's see how we can convert this Initializr template into a BloggerCMS layout.</p>
+<description><![CDATA[<p>In the <a href="https://bloggercms.github.io/post/new-layout-initializr.html">last post</a>, I shared a new layout based on <a href="http://www.initializr.com/try">Responsive</a> template of <a href="http://www.initializr.com/">Initializr</a>. For the sake of this tutorial, let's see how we can convert this Initializr template into a BloggerCMS layout.</p>
 <h3>What You Need to Know</h3>
 <ul>
 <li>Basics of HTML and CSS</li>
-<li>Basics of [mustache template engine][4] ([see its docs][5]) because <em>BloggerCMS layouts are based on mustache</em>. Even if you don't know it, you can follow along still because we show how you can use built-in layout variables to create your custom layout</li>
+<li>Basics of <a href="https://mustache.github.io/">mustache template engine</a> (<a href="https://mustache.github.io/mustache.5.html">see its docs</a>) because <em>BloggerCMS layouts are based on mustache</em>. Even if you don't know it, you can follow along still because we show how you can use built-in layout variables to create your custom layout</li>
 </ul>
 <h3>Layout File Structure</h3>
 <p>If you look at the <strong>default</strong> layout folder, it contains these files and folders:</p>
-<p>![enter image description here][6]</p>
+<p><img src="https://bloggercms.github.io/images/142857271555264a2b07346.gif" alt="enter image description here" /></p>
 <p>Here is what they mean:</p>
 <ul>
 <li><strong>css</strong> - contains all CSS styles for the blog</li>
 <li><strong>images</strong> - contains all images needed in the layout</li>
 <li><strong>js</strong> - contains all javascript files needed in the layout</li>
 <li><strong>partials</strong> - contains mustache partials (similar to PHP include files) such as header, sidebar, footer, etc</li>
-<li><strong>archive.mustache</strong> - contains archive posts ([Example][7])</li>
-<li><strong>category.mustache</strong> - contains category posts ([Example][8]) </li>
-<li><strong>index.mustache</strong> -  contains home page posts ([Example][9])</li>
-<li><strong>page.mustache</strong> -  contains page posts ([Example][10])</li>
-<li><strong>post.mustache</strong> -  contains single post ([Example][11])</li>
-<li><strong>posts.mustache</strong> -  contains all blog posts on single page ([Example][12])</li>
-<li><strong>tag.mustache</strong> -  contains tag posts ([Example][13])</li>
+<li><strong>archive.mustache</strong> - contains archive posts (<a href="http://bloggercms.github.io/archive/april-2015/">Example</a>)</li>
+<li><strong>category.mustache</strong> - contains category posts (<a href="https://bloggercms.github.io/category/layouts.html">Example</a>) </li>
+<li><strong>index.mustache</strong> -  contains home page posts (<a href="https://bloggercms.github.io/index.html">Example</a>)</li>
+<li><strong>page.mustache</strong> -  contains page posts (<a href="https://bloggercms.github.io/page/about.html">Example</a>)</li>
+<li><strong>post.mustache</strong> -  contains single post (<a href="https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html">Example</a>)</li>
+<li><strong>posts.mustache</strong> -  contains all blog posts on single page (<a href="https://bloggercms.github.io/posts.html">Example</a>)</li>
+<li><strong>tag.mustache</strong> -  contains tag posts (<a href="https://bloggercms.github.io/tag/tutorial.html">Example</a>)</li>
 </ul>
 <blockquote>
 <p><strong>Note:</strong> We are using <strong>mustache</strong> extension for files so that mustache template engine knows it. This means layout files should have
@@ -106,7 +106,7 @@ mustache extension.</p>
 <h3>Creating Partials</h3>
 <p>Partials are files that can be included in other files such as header footer or any other piece of html that should appear in all pages of the blog.</p>
 <p>Having above variables in place, we can easily construct a layout. Let's start.</p>
-<p>Go to [Initializr][14] website and download their [Responsive][15] template by clicking on big orange color button. Once downloaded, extract contents of it and move to <strong>layouts</strong> folder of BloggerCMS. You will see it contains few folders and an <strong>index.html</strong> file.</p>
+<p>Go to <a href="http://www.initializr.com/">Initializr</a> website and download their <a href="http://www.initializr.com/try">Responsive</a> template by clicking on big orange color button. Once downloaded, extract contents of it and move to <strong>layouts</strong> folder of BloggerCMS. You will see it contains few folders and an <strong>index.html</strong> file.</p>
 <p>First step is to create required folder <strong>partials</strong> inside downloaded initialzr folder. Once you have done that, let's create partials for the layout. If you open index.html file of initialzr template in editor of your choice, you would see it contains:</p>
 <pre><code>&lt;!doctype html&gt;
 &lt;html class="no-js" lang=""&gt;
@@ -593,267 +593,231 @@ mustache extension.</p>
 {{&gt; footer}}</code></pre>
 <p><strong>Page</strong></p>
 <p>Create a file page.mustache and paste:</p>
-<p>{{&gt; head}}</p>
-<body>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
 
-{{> header}}
+{{&gt; header}}
 
-    <div class="main-container">
-        <div class="main wrapper clearfix">
-            <article>
-                <header>
-                    <h1>{{page.title}}</h1>
-                </header>
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;{{page.title}}&lt;/h1&gt;
+                &lt;/header&gt;
 
-                <section>
-                    <hr>
-                    <p class="page-content">{{{page.body}}}</p>
-                </section>
-            </article>
+                &lt;section&gt;
+                    &lt;hr&gt;
+                    &lt;p class="page-content"&gt;{{{page.body}}}&lt;/p&gt;
+                &lt;/section&gt;
+            &lt;/article&gt;
 
-            {{> side}}
-        </div>
-        <!-- #main -->
-    </div>
-    <!-- #main-container -->
+            {{&gt; side}}
+        &lt;/div&gt;
+        &lt;!-- #main --&gt;
+    &lt;/div&gt;
+    &lt;!-- #main-container --&gt;
 
-    {{> footer}}
+    {{&gt; footer}}</code></pre>
+<p>As noted above in Layout Variables section, <code>{{page}}</code> variable contains single page data and hence we can use <code>{{page.title}}</code> to get title or <code>{{page.body}}</code></p>
+<p><strong>Single Post Page</strong></p>
+<p>Create a file post.mustache and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
 
-As noted above in Layout Variables section, `{{page}}` variable contains single page data and hence we can use `{{page.title}}` to get title or `{{page.body}}`
+{{&gt; header}}
 
-**Single Post Page**
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+                &lt;/header&gt;
 
-Create a file post.mustache and paste:
+                &lt;section&gt;
+                    &lt;hr&gt;
+                    &lt;p class="page-content"&gt;{{{post.body}}}&lt;/p&gt;
+                &lt;/section&gt;
+            &lt;/article&gt;
 
-{{> head}}
-<body>
+            {{&gt; side}}
+        &lt;/div&gt;
+        &lt;!-- #main --&gt;
+    &lt;/div&gt;
+    &lt;!-- #main-container --&gt;
 
-{{> header}}
+    {{&gt; footer}}</code></pre>
+<p>But we also need to add date, category and tags information, so modify it like:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
 
-    <div class="main-container">
-        <div class="main wrapper clearfix">
-            <article>
-                <header>
-                    <h1>{{post.title}}</h1>
-                </header>
+{{&gt; header}}
 
-                <section>
-                    <hr>
-                    <p class="page-content">{{{post.body}}}</p>
-                </section>
-            </article>
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+                &lt;span class="time"&gt;{{post.dated}}&lt;/span&gt;
+            &lt;/header&gt;
 
-            {{> side}}
-        </div>
-        <!-- #main -->
-    </div>
-    <!-- #main-container -->
+            &lt;section&gt;
+                &lt;hr&gt;
+                &lt;p class="post-content"&gt;{{{post.body}}}&lt;/p&gt;
+                &lt;br/&gt;
 
-    {{> footer}}
+                &lt;div class="post-info"&gt;
+                    {{#post.category}}
+                        &lt;strong&gt;Category:&lt;/strong&gt;
+                        &lt;a class="lowercase" href="{{settings.url}}/category/{{category}}.html"&gt;{{post.category}}&lt;/a&gt;
+                          
+                    {{/post.category}}
 
-But we also need to add date, category and tags information, so modify it like:
+                    &lt;strong&gt;Tags:&lt;/strong&gt;
 
-    {{> head}}
-    <body>
+                    {{#post.tags}}
+                        &lt;a class="lowercase" href="{{settings.url}}/tag/{{.}}.html"&gt;{{.}}&lt;/a&gt;  
+                    {{/post.tags}}
+                &lt;/div&gt;
+            &lt;/section&gt;
+        &lt;/article&gt;
 
-    {{> header}}
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
 
-    <div class="main-container">
-        <div class="main wrapper clearfix">
-            <article>
-                <header>
-                    <h1>{{post.title}}</h1>
-                    <span class="time">{{post.dated}}</span>
-                </header>
+{{&gt; footer}}</code></pre>
+<p>You would notice partials&gt;article.mustache file is used in various files, so let's update it. Modify it so it contains:</p>
+<pre><code>&lt;header&gt;
+    &lt;h1&gt;&lt;a href="{{settings.url}}/post/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/h1&gt;
+    &lt;span class="time"&gt;{{dated}}&lt;/span&gt;
+&lt;/header&gt;
 
-                <section>
-                    <hr>
-                    <p class="post-content">{{{post.body}}}</p>
-                    <br/>
+{{#showbody}}
+    &lt;section&gt;
+        &lt;hr&gt;
+        &lt;p class="post-content"&gt;{{{body}}}&lt;/p&gt;
+        &lt;br/&gt;
 
-                    <div class="post-info">
-                        {{#post.category}}
-                            <strong>Category:</strong>
-                            <a class="lowercase" href="{{settings.url}}/category/{{category}}.html">{{post.category}}</a>
-                              
-                        {{/post.category}}
+        &lt;div class="post-info"&gt;
+            {{#category}}
+                &lt;strong&gt;Category:&lt;/strong&gt;
+                &lt;a class="lowercase" href="{{settings.url}}/category/{{category}}.html"&gt;{{category}}&lt;/a&gt;
+                  
+            {{/category}}
 
-                        <strong>Tags:</strong>
+            &lt;strong&gt;Tags:&lt;/strong&gt;
 
-                        {{#post.tags}}
-                            <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>  
-                        {{/post.tags}}
-                    </div>
-                </section>
-            </article>
+            {{#tags}}
+                &lt;a class="lowercase" href="{{settings.url}}/tag/{{.}}.html"&gt;{{.}}&lt;/a&gt;  
+            {{/tags}}
+        &lt;/div&gt;
 
-            {{> side}}
-        </div>
-        <!-- #main -->
-    </div>
-    <!-- #main-container -->
+    &lt;/section&gt;
+{{/showbody}}
+&lt;hr&gt;</code></pre>
+<p>Here <code>{{showbody}}</code> variable is used to dictate whether or not show post body based on <strong>Display Post Titles Only</strong> option in Settings &gt; General Setttings.</p>
+<p>Let's now modify header.mustache file so it show blog name as well as links for created pages:</p>
+<pre><code>&lt;div class="header-container"&gt;
+    &lt;header class="wrapper clearfix"&gt;
+        &lt;h1 class="title"&gt;
+            &lt;a href="{{settings.url}}/index.html" class="navbar-brand"&gt;{{settings.title}}&lt;/a&gt;
+        &lt;/h1&gt;
 
-    {{> footer}}
+        &lt;nav&gt;
+            &lt;ul class="nav navbar-nav page-links"&gt;
+                {{#pages}}
+                    &lt;li&gt;&lt;a href="{{settings.url}}/page/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
+                {{/pages}}
+            &lt;/ul&gt;
+        &lt;/nav&gt;
 
-You would notice partials>article.mustache file is used in various files, so let's update it. Modify it so it contains:
+    &lt;/header&gt;
+&lt;/div&gt;</code></pre>
+<p>Let's finally update the sidebar so it contains recent posts, categories, archives, tags cloud, follow information and custom values:</p>
+<pre><code>{{#follow}}
+    &lt;aside&gt;
+        &lt;h3&gt;Follow Me&lt;/h3&gt;
 
-    <header>
-        <h1><a href="{{settings.url}}/post/{{slug}}.html">{{title}}</a></h1>
-        <span class="time">{{dated}}</span>
-    </header>
+        &lt;a target="_blank" href="{{settings.url}}/rss.xml"&gt;&lt;img src="{{settings.url}}/img/rss.png" width="40" height="40"&gt;&lt;/a&gt;
 
-    {{#showbody}}
-        <section>
-            <hr>
-            <p class="post-content">{{{body}}}</p>
-            <br/>
+        {{#twitter}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/twitter.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/twitter}}
+        {{#linkedin}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/linkedin.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/linkedin}}
+        {{#github}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/github.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/github}}
+        {{#google}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/google-plus.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/google}}
+        {{#facebook}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/facebook.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/facebook}}
 
-            <div class="post-info">
-                {{#category}}
-                    <strong>Category:</strong>
-                    <a class="lowercase" href="{{settings.url}}/category/{{category}}.html">{{category}}</a>
-                      
-                {{/category}}
+    &lt;/aside&gt;
+{{/follow}}
 
-                <strong>Tags:</strong>
+{{#customValues}}
+    &lt;aside&gt;
+        &lt;h3&gt;{{title}}&lt;/h3&gt;
 
-                {{#tags}}
-                    <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>  
-                {{/tags}}
-            </div>
+        &lt;p&gt;{{{value}}}&lt;/p&gt;
+    &lt;/aside&gt;
+{{/customValues}}
 
-        </section>
-    {{/showbody}}
-    <hr>
+&lt;aside&gt;
+    &lt;h3&gt;Latest Posts&lt;/h3&gt;
 
-Here `{{showbody}}` variable is used to dictate whether or not show post body based on **Display Post Titles Only** option in Settings > General Setttings.
+    &lt;ul class="list-group"&gt;
+        {{#latestPosts}}
+            &lt;li&gt;&lt;a href="{{settings.url}}/post/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
+        {{/latestPosts}}
+    &lt;/ul&gt;
+&lt;/aside&gt;
 
-Let's now modify header.mustache file so it show blog name as well as links for created pages:
+&lt;aside&gt;
+    &lt;h3&gt;Categories&lt;/h3&gt;
 
-    <div class="header-container">
-        <header class="wrapper clearfix">
-            <h1 class="title">
-                <a href="{{settings.url}}/index.html" class="navbar-brand">{{settings.title}}</a>
-            </h1>
+    &lt;ul class="list-group"&gt;
+        {{#categories}}
+            &lt;li&gt;&lt;a class="lowercase" href="{{settings.url}}/category/{{.}}.html"&gt;{{.}}&lt;/a&gt;&lt;/li&gt;
+        {{/categories}}
+    &lt;/ul&gt;
+&lt;/aside&gt;
 
-            <nav>
-                <ul class="nav navbar-nav page-links">
-                    {{#pages}}
-                        <li><a href="{{settings.url}}/page/{{slug}}.html">{{title}}</a></li>
-                    {{/pages}}
-                </ul>
-            </nav>
+{{#archives}}
+    &lt;aside&gt;
+        &lt;h3&gt;Archives&lt;/h3&gt;
 
-        </header>
-    </div>
+        &lt;p&gt;{{{.}}}&lt;/p&gt;
+    &lt;/aside&gt;
+{{/archives}}
 
-Let's finally update the sidebar so it contains recent posts, categories, archives, tags cloud, follow information and custom values:
+{{#tagsCloud}}
+    &lt;aside&gt;
+        &lt;h3&gt;Tags Cloud&lt;/h3&gt;
 
-    {{#follow}}
-        <aside>
-            <h3>Follow Me</h3>
-
-            <a target="_blank" href="{{settings.url}}/rss.xml"><img src="{{settings.url}}/img/rss.png" width="40" height="40"></a>
-
-            {{#twitter}}
-                <a target="_blank" href="{{.}}"><img src="{{settings.url}}/img/twitter.png" width="40" height="40"></a>
-            {{/twitter}}
-            {{#linkedin}}
-                <a target="_blank" href="{{.}}"><img src="{{settings.url}}/img/linkedin.png" width="40" height="40"></a>
-            {{/linkedin}}
-            {{#github}}
-                <a target="_blank" href="{{.}}"><img src="{{settings.url}}/img/github.png" width="40" height="40"></a>
-            {{/github}}
-            {{#google}}
-                <a target="_blank" href="{{.}}"><img src="{{settings.url}}/img/google-plus.png" width="40" height="40"></a>
-            {{/google}}
-            {{#facebook}}
-                <a target="_blank" href="{{.}}"><img src="{{settings.url}}/img/facebook.png" width="40" height="40"></a>
-            {{/facebook}}
-
-        </aside>
-    {{/follow}}
-
-    {{#customValues}}
-        <aside>
-            <h3>{{title}}</h3>
-
-            <p>{{{value}}}</p>
-        </aside>
-    {{/customValues}}
-
-    <aside>
-        <h3>Latest Posts</h3>
-
-        <ul class="list-group">
-            {{#latestPosts}}
-                <li><a href="{{settings.url}}/post/{{slug}}.html">{{title}}</a></li>
-            {{/latestPosts}}
-        </ul>
-    </aside>
-
-    <aside>
-        <h3>Categories</h3>
-
-        <ul class="list-group">
-            {{#categories}}
-                <li><a class="lowercase" href="{{settings.url}}/category/{{.}}.html">{{.}}</a></li>
-            {{/categories}}
-        </ul>
-    </aside>
-
-    {{#archives}}
-        <aside>
-            <h3>Archives</h3>
-
-            <p>{{{.}}}</p>
-        </aside>
-    {{/archives}}
-
-    {{#tagsCloud}}
-        <aside>
-            <h3>Tags Cloud</h3>
-
-            <ul class="list-inline">
-                {{{.}}}
-            </ul>
-        </aside>
-    {{/tagsCloud}}
-
-As you can see, we have used various Layout Variables to construct sidebar sections.
-
-**Few things to notice here:**
-
- - For follow section, you will need to upload relevant social icon images for twitter, facebook, etc
- - To iterate over flat values array, you would use `{{.}}`, this will automatically print current value inside variable
- - To show html tags un-escaped, you need to use three curly braces notation eg `{{{.}}}`
- - Whole blog data is contained in **admin/data/blog.json** file which is then copied into **public/data/blog.json** file.
-
-Finally to apply your new layout, from Settings > General Settings, specify **initializr** as name for the **Layout Name** option and hit the **Generate Blog** button on the top right.
-
-And that concludes the creation of a template, of course explaining each and everything takes bit of time but once you know basics of HTML and [mustache template][16], you should be able to create a layout fast.
-
-----------
-
-## [Download This Layout][17] ##
-
-  [1]: https://bloggercms.github.io/post/new-layout-initializr.html
-  [2]: http://www.initializr.com/try
-  [3]: http://www.initializr.com/
-  [4]: https://mustache.github.io/
-  [5]: https://mustache.github.io/mustache.5.html
-  [6]: https://bloggercms.github.io/images/142857271555264a2b07346.gif
-  [7]: http://bloggercms.github.io/archive/april-2015/
-  [8]: https://bloggercms.github.io/category/layouts.html
-  [9]: https://bloggercms.github.io/index.html
-  [10]: https://bloggercms.github.io/page/about.html
-  [11]: https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html
-  [12]: https://bloggercms.github.io/posts.html
-  [13]: https://bloggercms.github.io/tag/tutorial.html
-  [14]: http://www.initializr.com/
-  [15]: http://www.initializr.com/try
-  [16]: https://mustache.github.io/
-  [17]: https://bloggercms.github.io/post/new-layout-initializr.html]]></description>
+        &lt;ul class="list-inline"&gt;
+            {{{.}}}
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+{{/tagsCloud}}</code></pre>
+<p>As you can see, we have used various Layout Variables to construct sidebar sections.</p>
+<p><strong>Few things to notice here:</strong></p>
+<ul>
+<li>For follow section, you will need to upload relevant social icon images for twitter, facebook, etc</li>
+<li>To iterate over flat values array, you would use <code>{{.}}</code>, this will automatically print current value inside variable</li>
+<li>To show html tags un-escaped, you need to use three curly braces notation eg <code>{{{.}}}</code></li>
+<li>Whole blog data is contained in <strong>admin/data/blog.json</strong> file which is then copied into <strong>public/data/blog.json</strong> file.</li>
+</ul>
+<p>Finally to apply your new layout, from Settings &gt; General Settings, specify <strong>initializr</strong> as name for the <strong>Layout Name</strong> option and hit the <strong>Generate Blog</strong> button on the top right.</p>
+<p>And that concludes the creation of a template, of course explaining each and everything takes bit of time but once you know basics of HTML and <a href="https://mustache.github.io/">mustache template</a>, you should be able to create a layout fast.</p>
+<hr />
+<h2><a href="https://bloggercms.github.io/post/new-layout-initializr.html">Download This Layout</a></h2>]]></description>
 <link>https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html</link>
 <pubDate>Thu, 09 Apr 2015 11:41:00 +0200</pubDate>
 </item>
