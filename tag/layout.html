@@ -71,6 +71,123 @@
             <br/>
 
                 <article>
+                    <h3><a href="https://bloggercms.github.io/post/how-to-add-search-feature-to-custom-bloggercms-layouts.html">How to Add Search Feature to Custom BloggerCMS Layouts</a></h3>
+                    <span class="glyphicon glyphicon-time"></span> April 09, 2015 04:03 PM
+                
+                        <hr>
+                        <p class="post-content"><p>To add Search feature to your custom layout, create a search box and a button something like:</p>
+<pre><code>&lt;input type="text" class="searchQuery" placeholder="Search Posts"&gt;
+&lt;button type="button" class="searchButton"&gt;Submit&lt;/button&gt;</code></pre>
+<p>Now in your custom layout, copy <strong>search.js</strong> file from <strong>default/js</strong> folder to your custom layout folder and include it in your layout by placing this code in your layout footer file:</p>
+<pre><code>&lt;script&gt;
+    var __blogURL = '{{settings.url}}';
+&lt;/script&gt;
+
+&lt;script src="{{settings.url}}/js/search.js"&gt;&lt;/script&gt;</code></pre>
+<p>Open search.js file in some text editor and you will see it contains:</p>
+<pre><code>$(function () {
+
+    ////////////// EDIT BELOW FOUR VARS ///////////////
+    // class/id/selector of search keyword textbox
+    var $searchKeywordSelector = $('.searchQuery');
+    // class/id/selector of search button
+    var $searchButtonSelector = $('.searchButton');
+    // class/id/selector for element where results will show
+    var $searchResultsSelector = $('.main-content');
+    ///////////////////////////////////////////////////
+
+    // now search for blog posts
+    $searchButtonSelector.click(function () {
+        var foundPosts = '';
+        var searchQuery = $.trim($searchKeywordSelector.val());
+        var queryRegex = new RegExp(searchQuery, "ig");
+
+        // don't search if nothing specified
+        if (!searchQuery) {
+            return false;
+        }
+
+        $.ajax({
+            url: __blogURL + "/data/blog.json",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                $.each(data.posts, function (i, post) {
+                    var postBody = $("&lt;div/&gt;").html(post.body).text();
+
+                    if (post.title.search(queryRegex) != -1 || postBody.search(queryRegex) != -1) {
+                        var slug = post.title.replace(/[^a-zA-Z0-9\/_|+ -]/, '');
+                        slug = $.trim(slug).toLowerCase();
+                        slug = slug.replace(/\s+/g,' ');
+                        slug = slug.replace(/\W/g, ' ');
+                        slug = slug.replace(/\s+/g, '-');
+
+                        if (slug) {
+                            foundPosts += '&lt;h3&gt;&lt;a href="' + data.settings.url + '/post/' + slug + '.html"&gt;' + post.title + '&lt;/a&gt;&lt;/h3&gt;&lt;hr&gt;';
+                        }
+                    }
+                });
+
+                if (foundPosts) {
+                    $searchResultsSelector.html('').html(foundPosts);
+                }
+                else {
+                    alert('No results found!');
+                }
+            },
+            error: function (e) {
+                console.log("error in searching...");
+            }
+        });
+    });
+
+    // on Enter keyboard button, click on search button
+    $searchKeywordSelector.keydown(function (event) {
+        if (event.keyCode == 13) {
+            $searchButtonSelector.click();
+        }
+    });
+
+});</code></pre>
+<p>Finally you need to edit these variables:</p>
+<pre><code>////////////// EDIT BELOW FOUR VARS ///////////////
+// class/id/selector of search keyword textbox
+var $searchKeywordSelector = $('.searchQuery');
+// class/id/selector of search button
+var $searchButtonSelector = $('.searchButton');
+// class/id/selector for element where results will show
+var $searchResultsSelector = $('.main-content');
+///////////////////////////////////////////////////</code></pre>
+<ul>
+<li><code>$searchKeywordSelector</code> should match your search input/textbox selector</li>
+<li><code>$searchButtonSelector</code> should match selector of search button</li>
+<li><code>$searchResultsSelector</code> should match with element selector where you want to show search results</li>
+</ul>
+<p>In above case, search textbox and button match these:</p>
+<pre><code>&lt;input type="text" class="searchQuery" placeholder="Search Posts"&gt;
+&lt;button type="button" class="searchButton"&gt;Submit&lt;/button&gt;</code></pre>
+<p>And for results element (<code>.main-content</code>), you could have for example:</p>
+<pre><code>&lt;div class="main-content"&gt;Search results will be shown here&lt;/div&gt;</code></pre>
+<p>Of course, you can give any class/id/attribute to your search input, button and results element but you should match them in above three variables.</p>
+<hr />
+<p>For technical part of it, you would notice in order to search, we trigger an ajax request and get all contents of json file present in <strong>public/data/blog.json</strong> file. Then we iterate over each post and compare title and body of each post with search query and for found results, we create links with titles.</p>
+<p>Therefore the <strong>public/data/blog.json</strong>  file must be present in order for search to work. This file is automatically generated by BloggerCMS.</p></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/Layouts.html">Layouts</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/search.html">search</a>&nbsp;&nbsp;
+                        </div>
+                
+                    <hr>
+                </article>
+                <article>
                     <h3><a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 09, 2015 11:41 AM
                 
@@ -966,6 +1083,7 @@ mustache extension.</p>
                 </div>
         
                 <ul class="list-group">
+                        <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-search-feature-to-custom-bloggercms-layouts.html">How to Add Search Feature to Custom BloggerCMS Layouts</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/new-layout-initializr.html">New Layout: Initializr</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html">How to Add Images to Posts and Pages</a></li>
@@ -1005,19 +1123,20 @@ mustache extension.</p>
                     <div class="panel-body">
                         <ul class="list-inline">
                             <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/admin.html" title="'admin' returned a count of 0">admin</a>
-<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 1">bloggercms</a>
+<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 1">bloggercms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/cms.html" title="'cms' returned a count of 0">cms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/disqus.html" title="'disqus' returned a count of 0">disqus</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/image.html" title="'image' returned a count of 0">image</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/imagemanager.html" title="'imagemanager' returned a count of 0">imagemanager</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/initializr.html" title="'initializr' returned a count of 0">initializr</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/intro.html" title="'intro' returned a count of 0">intro</a>
-<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/layout.html" title="'layout' returned a count of 1">layout</a>
+<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/layout.html" title="'layout' returned a count of 2">layout</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/page.html" title="'page' returned a count of 0">page</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/php.html" title="'php' returned a count of 0">php</a>
-<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/post.html" title="'post' returned a count of 1">post</a>
+<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/post.html" title="'post' returned a count of 1">post</a>
+<a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/search.html" title="'search' returned a count of 0">search</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/template.html" title="'template' returned a count of 0">template</a>
-<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/tutorial.html" title="'tutorial' returned a count of 1">tutorial</a>
+<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/tutorial.html" title="'tutorial' returned a count of 1">tutorial</a>
 
                         </ul>
                     </div>
