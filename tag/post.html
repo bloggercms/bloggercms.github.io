@@ -74,114 +74,11 @@
                     <h3><a href="https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html">How to Add Images to Posts and Pages</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 08, 2015 08:28 PM
                 
-                        <hr>
-                        <p class="post-content"><p>You can use <strong>Image Manager</strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:</p>
-<ul>
-<li>Go to Image Manager page</li>
-</ul>
-<p><img src="https://bloggercms.github.io/images/1428516963552570634aff2.gif" alt="enter image description here" /></p>
-<ul>
-<li>Select your image and click on the green Upload button</li>
-</ul>
-<p><img src="https://bloggercms.github.io/images/1428516967552570678d937.gif" alt="enter image description here" /></p>
-<ul>
-<li>When you hit the upload button, image will be uploaded in <strong>public/images</strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:</li>
-</ul>
-<p><img src="https://bloggercms.github.io/images/1428517370552571fa88926.gif" alt="enter image description here" /></p>
-<ul>
-<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G</kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:</li>
-</ul>
-<p><img src="https://bloggercms.github.io/images/14285176465525730e530cc.gif" alt="enter image description here" /></p></p>
-                        <br/>
-                
-                        <div class="post-info">
-                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/category/Tutorial.html">Tutorial</a>
-                                &nbsp;&nbsp;
-                
-                            <span class="glyphicon glyphicon-bookmark"></span>
-                
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/image.html">image</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/imagemanager.html">imagemanager</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/page.html">page</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/post.html">post</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
-                        </div>
-                
                     <hr>
                 </article>
                 <article>
                     <h3><a href="https://bloggercms.github.io/post/how-to-add-disqus-commenting-to-posts.html">How to Add Disqus Commenting to Posts</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 07, 2015 07:52 PM
-                
-                        <hr>
-                        <p class="post-content"><p>If you notice, under each post on this blog there is Comments section powered by excellent <a href="https://disqus.com/">Disqus</a>:</p>
-<p><img src="https://bloggercms.github.io/images/142843076855241fb037206.gif" alt="enter image description here" /></p>
-<hr />
-<p>To add Disqus commenting to your blog, please follow these steps:</p>
-<ul>
-<li><a href="https://disqus.com/">Create an account on Disqus</a></li>
-<li>Once you have registered, login and then go to <a href="https://disqus.com/admin/create/">Add Disqus to your site</a> page and fill in the details of your blog</li>
-</ul>
-<p><img src="https://bloggercms.github.io/images/14284312345524218240bc8.png" alt="enter image description here" /></p>
-<p>On the next page, choose <strong>Universal Code</strong> option:</p>
-<p><img src="https://bloggercms.github.io/images/1428431430552422464a84a.gif" alt="enter image description here" /></p>
-<p>They would give you bunch of code like:</p>
-<pre><code>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
-&lt;script type="text/javascript"&gt;
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'bloggercms';
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-&lt;/script&gt;
-&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</code></pre>
-<p>From that code, we are only interested in <strong>disqus_shortname</strong>. In above code it appears here:</p>
-<pre><code>var disqus_shortname = 'bloggercms';</code></pre>
-<p>In this case, our shortname is <strong>bloggercms</strong> (in your case, it will be different) which is all we need not whole code. We need to update this shortname (bloggercms) in BloggerCMS settings page to enable Disqus commenting.</p>
-<p>Go to Settings page and on General Settings tab specify your Disqus unique/shortname for the <strong>Disqus Shortname</strong> field and hit Update button:</p>
-<p><img src="https://bloggercms.github.io/images/14284319185524242e2c2cd.gif" alt="enter image description here" /></p>
-<p>And that's it, your all posts will now have Disqus commenting below them. </p>
-<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p>
-<hr />
-<h2>Adding Disqus to Custom BloggerCMS Layouts</h2>
-<p>If you want create custom layout for BloggerCMS and want to add Disqus commenting, just put below snippet at appropriate place in post.mustache file:</p>
-<pre><code>&lt;!-- Comment form --&gt;
-&lt;div class="well"&gt;
-    &lt;div id="disqus_thread"&gt;&lt;/div&gt;
-    &lt;script type="text/javascript"&gt;
-        var disqus_shortname = '{{settings.disqus}}'; // required: replace example with your forum shortname
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    &lt;/script&gt;
-    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;Comments
-        powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
-    &lt;a href="http://disqus.com" class="dsq-brlink"&gt;Comments powered by
-        &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;
-&lt;/div&gt;</code></pre></p>
-                        <br/>
-                
-                        <div class="post-info">
-                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/category/Tutorial.html">Tutorial</a>
-                                &nbsp;&nbsp;
-                
-                            <span class="glyphicon glyphicon-bookmark"></span>
-                
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/disqus.html">disqus</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/post.html">post</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
-                        </div>
                 
                     <hr>
                 </article>
