@@ -70,11 +70,865 @@
                     <h3><a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 09, 2015 11:41 AM
                 
+                        <hr>
+                        <p class="post-content"><p>In the <a href="https://bloggercms.github.io/post/new-layout-initializr.html">last post</a>, I shared a new layout based on <a href="http://www.initializr.com/try">Responsive</a> template of <a href="http://www.initializr.com/">Initializr</a>. For the sake of this tutorial, let's see how we can convert this Initializr template into a BloggerCMS layout.</p>
+<h3>What You Need to Know</h3>
+<ul>
+<li>Basics of HTML and CSS</li>
+<li>Basics of <a href="https://mustache.github.io/">mustache template engine</a> (<a href="https://mustache.github.io/mustache.5.html">see its docs</a>) because <em>BloggerCMS layouts are based on mustache</em>. Even if you don't know it, you can follow along still because we show how you can use built-in layout variables to create your custom layout</li>
+</ul>
+<h3>Layout File Structure</h3>
+<p>If you look at the <strong>default</strong> layout folder, it contains these files and folders:</p>
+<p><img src="https://bloggercms.github.io/images/142857271555264a2b07346.gif" alt="enter image description here" /></p>
+<p>Here is what they mean:</p>
+<ul>
+<li><strong>css</strong> - contains all CSS styles for the blog</li>
+<li><strong>images</strong> - contains all images needed in the layout</li>
+<li><strong>js</strong> - contains all javascript files needed in the layout</li>
+<li><strong>partials</strong> - contains mustache partials (similar to PHP include files) such as header, sidebar, footer, etc</li>
+<li><strong>archive.mustache</strong> - contains archive posts (<a href="http://bloggercms.github.io/archive/april-2015/">Example</a>)</li>
+<li><strong>category.mustache</strong> - contains category posts (<a href="https://bloggercms.github.io/category/layouts.html">Example</a>) </li>
+<li><strong>index.mustache</strong> -  contains home page posts (<a href="https://bloggercms.github.io/index.html">Example</a>)</li>
+<li><strong>page.mustache</strong> -  contains page posts (<a href="https://bloggercms.github.io/page/about.html">Example</a>)</li>
+<li><strong>post.mustache</strong> -  contains single post (<a href="https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html">Example</a>)</li>
+<li><strong>posts.mustache</strong> -  contains all blog posts on single page (<a href="https://bloggercms.github.io/posts.html">Example</a>)</li>
+<li><strong>tag.mustache</strong> -  contains tag posts (<a href="https://bloggercms.github.io/tag/tutorial.html">Example</a>)</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> We are using <strong>mustache</strong> extension for files so that mustache template engine knows it. This means layout files should have
+mustache extension.</p>
+</blockquote>
+<p>Here are few things to notice:</p>
+<ul>
+<li>When creating your custom layouts, you should follow the same naming for all *<strong>.mustache</strong> files present in the layout root folder. For example, you cannot say <strong>myarchive.mustache</strong> for <strong>archive.mustache</strong>.</li>
+<li>Layout must contain a required <strong>partials</strong> folder. Inside <strong>partials</strong> folder, you are not bound with naming convention eg you can name your mustache partials anything like <strong>header.mustache</strong> or <strong>myheader.mustache</strong> - any name you can use.</li>
+<li>BloggerCMS will automatically convert all your .mustache files into .html files</li>
+</ul>
+<h3>Layout Variables</h3>
+<p>In your custom layouts, you can use these mustache template variables:</p>
+<p><strong>Settings &gt; General</strong></p>
+<ul>
+<li><code>{{settings}}</code> - All settings of the blog</li>
+<li><code>{{settings.title}}</code> - Title of the blog</li>
+<li><code>{{settings.tagline}}</code> - Tagline of the blog</li>
+<li><code>{{settings.author}}</code> - Author name of the blog</li>
+<li><code>{{settings.url}}</code> - URL of the blog</li>
+<li><code>{{settings.disqus}}</code> - Disqus shortname for commenting on posts</li>
+<li><code>{{settings.analytics}}</code> - Google Analytics Tracking ID</li>
+</ul>
+<p><strong>Settings &gt; Follow</strong></p>
+<ul>
+<li><code>{{follow}}</code> - All follow data</li>
+<li><code>{{follow.twitter}}</code> - Twitter URL</li>
+<li><code>{{follow.linkedin}}</code> - Linkedin URL</li>
+<li><code>{{follow.github}}</code> - Github URL</li>
+<li><code>{{follow.google}}</code> - Google Plus URL</li>
+<li><code>{{follow.facebook}}</code> - Facebook URL</li>
+</ul>
+<p><strong>Settings &gt; Custom Values</strong></p>
+<ul>
+<li><code>{{customValues}}</code> - All custom values data</li>
+<li><code>{{customValues.title}}</code> - Title of custom value field</li>
+<li><code>{{customValues.value}}</code> - Value of custom value field</li>
+</ul>
+<p><strong>Posts</strong></p>
+<ul>
+<li><code>{{posts}}</code> - All posts of the blog</li>
+<li><code>{{homePosts}}</code> - Home page posts of the blog. It will contain as many posts as defined in <strong>Number of Posts</strong> option in BloggerCMS settings.</li>
+<li><code>{{latestPosts}}</code> - Latest 10 posts</li>
+<li><code>{{post}}</code> - Single post data</li>
+<li><code>{{post.title}}</code> - Title of the post</li>
+<li><code>{{post.tags}}</code> - Tags of the post</li>
+<li><code>{{post.category}}</code> - Category of the post</li>
+<li><code>{{post.body}}</code> - Body of the post</li>
+<li><code>{{post.dated}}</code> - Date post was published on</li>
+<li><code>{{post.slug}}</code> - URL name for the post</li>
+</ul>
+<p><strong>Pages</strong></p>
+<ul>
+<li><code>{{pages}</code> - All pages of the blog</li>
+<li><code>{{page}</code> - Single page data</li>
+<li><code>{{page.title}</code> - Title of page</li>
+<li><code>{{page.body}</code> - Body of the page</li>
+<li><code>{{page.slug}</code> - URL name for the page</li>
+</ul>
+<p><strong>Categories</strong></p>
+<ul>
+<li><code>{{categories}}</code> - All categories of blog posts</li>
+<li><code>{{categoryPosts}}</code> - All posts from a category</li>
+</ul>
+<p><strong>Archives</strong></p>
+<ul>
+<li><code>{{archives}}</code> - All archives of blog posts</li>
+<li><code>{{archivePosts}}</code> - All posts from an archive</li>
+</ul>
+<p><strong>Tags</strong></p>
+<ul>
+<li><code>{{tagsCloud}}</code> - Tags cloud for all posts</li>
+<li><code>{{tagPosts}}</code> - All posts from a tag</li>
+</ul>
+<h3>Creating Partials</h3>
+<p>Partials are files that can be included in other files such as header footer or any other piece of html that should appear in all pages of the blog.</p>
+<p>Having above variables in place, we can easily construct a layout. Let's start.</p>
+<p>Go to <a href="http://www.initializr.com/">Initializr</a> website and download their <a href="http://www.initializr.com/try">Responsive</a> template by clicking on big orange color button. Once downloaded, extract contents of it and move to <strong>layouts</strong> folder of BloggerCMS. You will see it contains few folders and an <strong>index.html</strong> file.</p>
+<p>First step is to create required folder <strong>partials</strong> inside downloaded initialzr folder. Once you have done that, let's create partials for the layout. If you open index.html file of initialzr template in editor of your choice, you would see it contains:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html class="no-js" lang=""&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;meta name="description" content=""&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+        &lt;link rel="stylesheet" href="css/normalize.min.css"&gt;
+        &lt;link rel="stylesheet" href="css/main.css"&gt;
+
+        &lt;script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;div class="header-container"&gt;
+            &lt;header class="wrapper clearfix"&gt;
+                &lt;h1 class="title"&gt;h1.title&lt;/h1&gt;
+                &lt;nav&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/nav&gt;
+            &lt;/header&gt;
+        &lt;/div&gt;
+
+        &lt;div class="main-container"&gt;
+            &lt;div class="main wrapper clearfix"&gt;
+
+                &lt;article&gt;
+                    &lt;header&gt;
+                        &lt;h1&gt;article header h1&lt;/h1&gt;
+                        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                    &lt;/header&gt;
+                    &lt;section&gt;
+                        &lt;h2&gt;article section h2&lt;/h2&gt;
+                        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                    &lt;/section&gt;
+                    &lt;section&gt;
+                        &lt;h2&gt;article section h2&lt;/h2&gt;
+                        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                    &lt;/section&gt;
+                    &lt;footer&gt;
+                        &lt;h3&gt;article footer h3&lt;/h3&gt;
+                        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                    &lt;/footer&gt;
+                &lt;/article&gt;
+
+                &lt;aside&gt;
+                    &lt;h3&gt;aside&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+                &lt;/aside&gt;
+
+            &lt;/div&gt; &lt;!-- #main --&gt;
+        &lt;/div&gt; &lt;!-- #main-container --&gt;
+
+        &lt;div class="footer-container"&gt;
+            &lt;footer class="wrapper"&gt;
+                &lt;h3&gt;footer&lt;/h3&gt;
+            &lt;/footer&gt;
+        &lt;/div&gt;
+
+        &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script&gt;window.jQuery || document.write('&lt;script src="js/vendor/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+
+        &lt;script src="js/main.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Let's first create <strong>head.mustache</strong> (you can name it anything you want) that will contain head information we would want to inject in all pages of the blog. Create a file head.mustache inside partials folder and in it <strong>cut</strong> following piece of html from index.html file and paste in head.mustache file:</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;html class="no-js" lang=""&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+        &lt;title&gt;&lt;/title&gt;
+        &lt;meta name="description" content=""&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+        &lt;link rel="stylesheet" href="css/normalize.min.css"&gt;
+        &lt;link rel="stylesheet" href="css/main.css"&gt;
+
+        &lt;script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;</code></pre>
+<p>In above file, let's now fill in <code>&lt;title&gt;&lt;/title&gt;</code> tag with blog name and fix javascript and style paths with blog url using <strong>layout variables</strong> shown earlier:</p>
+<pre><code>&lt;!doctype html&gt;
+  &lt;html class="no-js" lang=""&gt;
+      &lt;head&gt;
+          &lt;meta charset="utf-8"&gt;
+          &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+          &lt;title&gt;{{settings.title}}&lt;/title&gt;
+          &lt;meta name="description" content="{{settings.tagline}}"&gt;
+          &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+          &lt;link rel="stylesheet" href="{{settings.url}}/css/normalize.min.css"&gt;
+          &lt;link rel="stylesheet" href="{{settings.url}}/css/main.css"&gt;
+
+          &lt;script src="{{settings.url}}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"&gt;&lt;/script&gt;
+      &lt;/head&gt;</code></pre>
+<p>Since we cut above head section from index.html file, it should now look like:</p>
+<pre><code>&lt;body&gt;
+
+    &lt;div class="header-container"&gt;
+        &lt;header class="wrapper clearfix"&gt;
+            &lt;h1 class="title"&gt;h1.title&lt;/h1&gt;
+            &lt;nav&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+    &lt;/div&gt;
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;article header h1&lt;/h1&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                &lt;/header&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;footer&gt;
+                    &lt;h3&gt;article footer h3&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                &lt;/footer&gt;
+            &lt;/article&gt;
+
+            &lt;aside&gt;
+                &lt;h3&gt;aside&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+            &lt;/aside&gt;
+
+        &lt;/div&gt; &lt;!-- #main --&gt;
+    &lt;/div&gt; &lt;!-- #main-container --&gt;
+
+    &lt;div class="footer-container"&gt;
+        &lt;footer class="wrapper"&gt;
+            &lt;h3&gt;footer&lt;/h3&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;window.jQuery || document.write('&lt;script src="js/vendor/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Let's now cut header navigation section from initializr index.html file, it you notice it is contained in <code>&lt;div class="header-container"&gt;</code>. Create a file <strong>partials&gt;header.mustache</strong> and paste:</p>
+<pre><code>&lt;div class="header-container"&gt;
+    &lt;header class="wrapper clearfix"&gt;
+        &lt;h1 class="title"&gt;h1.title&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;nav ul li a&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+&lt;/div&gt;</code></pre>
+<p>The index.html file of initialzr should now appear like:</p>
+<pre><code>&lt;body&gt;
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;article header h1&lt;/h1&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                &lt;/header&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;footer&gt;
+                    &lt;h3&gt;article footer h3&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                &lt;/footer&gt;
+            &lt;/article&gt;
+
+            &lt;aside&gt;
+                &lt;h3&gt;aside&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+            &lt;/aside&gt;
+
+        &lt;/div&gt; &lt;!-- #main --&gt;
+    &lt;/div&gt; &lt;!-- #main-container --&gt;
+
+    &lt;div class="footer-container"&gt;
+        &lt;footer class="wrapper"&gt;
+            &lt;h3&gt;footer&lt;/h3&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;window.jQuery || document.write('&lt;script src="js/vendor/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Let's now create partial for footer. From index.html file cut everything starting from <code>&lt;div class="footer-container"&gt;</code>:</p>
+<pre><code>&lt;div class="footer-container"&gt;
+        &lt;footer class="wrapper"&gt;
+            &lt;h3&gt;footer&lt;/h3&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;window.jQuery || document.write('&lt;script src="js/vendor/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+
+    &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Save above in partials&gt;footer.mustache file. Let's now fix paths of javascript files using <code>{{settings.url}}</code> variable and save the file:</p>
+<pre><code>&lt;div class="footer-container"&gt;
+        &lt;footer class="wrapper"&gt;
+            &lt;h3&gt;footer&lt;/h3&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;window.jQuery || document.write('&lt;script src="{{settings.url}}js/vendor/jquery-1.11.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+
+    &lt;script src="{{settings.url}}js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>The index.html file should now look like:</p>
+<pre><code>&lt;body&gt;
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;article header h1&lt;/h1&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                &lt;/header&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;footer&gt;
+                    &lt;h3&gt;article footer h3&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                &lt;/footer&gt;
+            &lt;/article&gt;
+
+            &lt;aside&gt;
+                &lt;h3&gt;aside&lt;/h3&gt;
+                &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+            &lt;/aside&gt;
+
+        &lt;/div&gt; &lt;!-- #main --&gt;
+    &lt;/div&gt; &lt;!-- #main-container --&gt;</code></pre>
+<p>Let's now create partial for sidebar. You would notice sidebar appears in <code>&lt;aside&gt;</code> tag in index.html file. </p>
+<pre><code>&lt;aside&gt;
+  &lt;h3&gt;aside&lt;/h3&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+<p>Cut it and paste into new file partials&gt;side.mustache and save the file and the index.html file should now contain:</p>
+<pre><code>&lt;body&gt;
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;article header h1&lt;/h1&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+                &lt;/header&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section&gt;
+                    &lt;h2&gt;article section h2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;footer&gt;
+                    &lt;h3&gt;article footer h3&lt;/h3&gt;
+                    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.&lt;/p&gt;
+                &lt;/footer&gt;
+            &lt;/article&gt;
+
+        &lt;/div&gt; &lt;!-- #main --&gt;
+    &lt;/div&gt; &lt;!-- #main-container --&gt;</code></pre>
+<p>From the index.html file, we see that <code>&lt;article&gt;</code> tag is where our posts or pages will go. Create a file partials&gt;article.mustache and paste in it:</p>
+<pre><code>&lt;header&gt;
+  &lt;h1&gt;article header h1&lt;/h1&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.&lt;/p&gt;
+&lt;/header&gt;
+&lt;section&gt;
+  &lt;h2&gt;article section h2&lt;/h2&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+<p>The index.html should now be:</p>
+<pre><code>&lt;body&gt;
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+
+            &lt;/article&gt;
+
+        &lt;/div&gt; &lt;!-- #main --&gt;
+    &lt;/div&gt; &lt;!-- #main-container --&gt;</code></pre>
+<p>As you can see we have moved most of the repeatable stuff from index.html file in their own files and that's what index.html file contains in the end. Let's now include our partials we created so far in this index.html file, those should be specified exactly at their locations we cut them from.</p>
+<p>To include a partial file in other file, you can use <code>{{&gt; name}}</code> syntax. For example <code>{{&gt; head}}</code> will include <strong>partials/head.mustache</strong> file into another file. Therefore let's modify index.html file to include all our partials in it:</p>
+<pre><code>{{&gt; head}}
+
+&lt;body&gt;
+
+  {{&gt; header}}
+
+  &lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+      &lt;article&gt;
+
+      &lt;/article&gt;
+
+      {{&gt; side}}
+
+    &lt;/div&gt; &lt;!-- #main --&gt;
+  &lt;/div&gt; &lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p>Now BloggerCMS will automatically inject all partials in that file and also replace layout variables with their actual values. For example <code>{{settings.title}}</code> will be replaced by actual blog title. As noted earlier, mustache template engine only recognizes files with mustache extension, so rename the <strong>index.html</strong> file as <strong>index.mustache</strong> and this will be the home page of the blog.</p>
+<h3>Creating Layout Files</h3>
+<p><strong>Homepage</strong></p>
+<p>By now we already have index.mustache file which will be used for the homepage of the blog. Let's modify it to add blog posts and also include a link to all posts page: (as seen on home of this blog button called <strong>View All Posts</strong>)</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            {{#homePosts}}
+                {{&gt; article}}
+            {{/homePosts}}
+            &lt;br&gt;
+            &lt;a href="posts.html"&gt;→ View All Posts&lt;/a&gt;
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p>In above code, you would notice that:</p>
+<pre><code>{{#homePosts}}
+    {{&gt; article}}
+{{/homePosts}}</code></pre>
+<p>If you look at Layout Variables above, we come to now that <code>{{homePosts}}</code> contains all posts for the home page. You would notice special characters <code>#</code> and <code>/</code> before it. They mark start and end of mustache variable similar to HTML tags. It serves two purposes:</p>
+<ul>
+<li>Iterate over specified variable data (in this case, home page blog posts)</li>
+<li>Show data only if it is present. If no data will be present in variable,  stuff inside them won't be shown</li>
+</ul>
+<p>So that's it for the home page.</p>
+<p><strong>All Posts Page</strong></p>
+<p>Create posts.mustache file inside initializr layout folder and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            {{#posts}}
+                {{&gt; article}}
+            {{/posts}}
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p>This time we are using <code>{{posts}}</code> variable since it contains all posts of the blog and this <strong>posts.mustache</strong> file will be converted into <strong>posts.html</strong> by BloggerCMS where users will be able to see all blog posts.</p>
+<p><strong>Archives Page</strong></p>
+<p>Create archive.mustache file and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            &lt;h1&gt;Monthly Posts&lt;/h1&gt;
+            &lt;hr/&gt;
+            &lt;br/&gt;
+
+            {{#archivePosts}}
+                {{&gt; article}}
+            {{/archivePosts}}
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p>As noted, archives page data comes from <code>{{archivePosts}}</code> variable.</p>
+<p><strong>Category Page</strong></p>
+<p>Create a file category.mustache and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            &lt;h1&gt;Category Posts&lt;/h1&gt;
+            &lt;hr/&gt;
+            &lt;br/&gt;
+
+            {{#categoryPosts}}
+                {{&gt; article}}
+            {{/categoryPosts}}
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p><strong>Tags Page</strong></p>
+<p>Create a file tag.mustache and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            &lt;h1&gt;Tag Posts&lt;/h1&gt;
+            &lt;hr/&gt;
+            &lt;br/&gt;
+
+            {{#tagPosts}}
+                {{&gt; article}}
+            {{/tagPosts}}
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p><strong>Page</strong></p>
+<p>Create a file page.mustache and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;{{page.title}}&lt;/h1&gt;
+                &lt;/header&gt;
+
+                &lt;section&gt;
+                    &lt;hr&gt;
+                    &lt;p class="page-content"&gt;{{{page.body}}}&lt;/p&gt;
+                &lt;/section&gt;
+            &lt;/article&gt;
+
+            {{&gt; side}}
+        &lt;/div&gt;
+        &lt;!-- #main --&gt;
+    &lt;/div&gt;
+    &lt;!-- #main-container --&gt;
+
+    {{&gt; footer}}</code></pre>
+<p>As noted above in Layout Variables section, <code>{{page}}</code> variable contains single page data and hence we can use <code>{{page.title}}</code> to get title or <code>{{page.body}}</code></p>
+<p><strong>Single Post Page</strong></p>
+<p>Create a file post.mustache and paste:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+    &lt;div class="main-container"&gt;
+        &lt;div class="main wrapper clearfix"&gt;
+            &lt;article&gt;
+                &lt;header&gt;
+                    &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+                &lt;/header&gt;
+
+                &lt;section&gt;
+                    &lt;hr&gt;
+                    &lt;p class="page-content"&gt;{{{post.body}}}&lt;/p&gt;
+                &lt;/section&gt;
+            &lt;/article&gt;
+
+            {{&gt; side}}
+        &lt;/div&gt;
+        &lt;!-- #main --&gt;
+    &lt;/div&gt;
+    &lt;!-- #main-container --&gt;
+
+    {{&gt; footer}}</code></pre>
+<p>But we also need to add date, category and tags information, so modify it like:</p>
+<pre><code>{{&gt; head}}
+&lt;body&gt;
+
+{{&gt; header}}
+
+&lt;div class="main-container"&gt;
+    &lt;div class="main wrapper clearfix"&gt;
+        &lt;article&gt;
+            &lt;header&gt;
+                &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+                &lt;span class="time"&gt;{{post.dated}}&lt;/span&gt;
+            &lt;/header&gt;
+
+            &lt;section&gt;
+                &lt;hr&gt;
+                &lt;p class="post-content"&gt;{{{post.body}}}&lt;/p&gt;
+                &lt;br/&gt;
+
+                &lt;div class="post-info"&gt;
+                    {{#post.category}}
+                        &lt;strong&gt;Category:&lt;/strong&gt;
+                        &lt;a class="lowercase" href="{{settings.url}}/category/{{category}}.html"&gt;{{post.category}}&lt;/a&gt;
+                          
+                    {{/post.category}}
+
+                    &lt;strong&gt;Tags:&lt;/strong&gt;
+
+                    {{#post.tags}}
+                        &lt;a class="lowercase" href="{{settings.url}}/tag/{{.}}.html"&gt;{{.}}&lt;/a&gt;  
+                    {{/post.tags}}
+                &lt;/div&gt;
+            &lt;/section&gt;
+        &lt;/article&gt;
+
+        {{&gt; side}}
+    &lt;/div&gt;
+    &lt;!-- #main --&gt;
+&lt;/div&gt;
+&lt;!-- #main-container --&gt;
+
+{{&gt; footer}}</code></pre>
+<p>You would notice partials&gt;article.mustache file is used in various files, so let's update it. Modify it so it contains:</p>
+<pre><code>&lt;header&gt;
+    &lt;h1&gt;&lt;a href="{{settings.url}}/post/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/h1&gt;
+    &lt;span class="time"&gt;{{dated}}&lt;/span&gt;
+&lt;/header&gt;
+
+{{#showbody}}
+    &lt;section&gt;
+        &lt;hr&gt;
+        &lt;p class="post-content"&gt;{{{body}}}&lt;/p&gt;
+        &lt;br/&gt;
+
+        &lt;div class="post-info"&gt;
+            {{#category}}
+                &lt;strong&gt;Category:&lt;/strong&gt;
+                &lt;a class="lowercase" href="{{settings.url}}/category/{{category}}.html"&gt;{{category}}&lt;/a&gt;
+                  
+            {{/category}}
+
+            &lt;strong&gt;Tags:&lt;/strong&gt;
+
+            {{#tags}}
+                &lt;a class="lowercase" href="{{settings.url}}/tag/{{.}}.html"&gt;{{.}}&lt;/a&gt;  
+            {{/tags}}
+        &lt;/div&gt;
+
+    &lt;/section&gt;
+{{/showbody}}
+&lt;hr&gt;</code></pre>
+<p>Here <code>{{showbody}}</code> variable is used to dictate whether or not show post body based on <strong>Display Post Titles Only</strong> option in Settings &gt; General Setttings.</p>
+<p>Let's now modify header.mustache file so it show blog name as well as links for created pages:</p>
+<pre><code>&lt;div class="header-container"&gt;
+    &lt;header class="wrapper clearfix"&gt;
+        &lt;h1 class="title"&gt;
+            &lt;a href="{{settings.url}}/index.html" class="navbar-brand"&gt;{{settings.title}}&lt;/a&gt;
+        &lt;/h1&gt;
+
+        &lt;nav&gt;
+            &lt;ul class="nav navbar-nav page-links"&gt;
+                {{#pages}}
+                    &lt;li&gt;&lt;a href="{{settings.url}}/page/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
+                {{/pages}}
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+
+    &lt;/header&gt;
+&lt;/div&gt;</code></pre>
+<p>Let's finally update the sidebar so it contains recent posts, categories, archives, tags cloud, follow information and custom values:</p>
+<pre><code>{{#follow}}
+    &lt;aside&gt;
+        &lt;h3&gt;Follow Me&lt;/h3&gt;
+
+        &lt;a target="_blank" href="{{settings.url}}/rss.xml"&gt;&lt;img src="{{settings.url}}/img/rss.png" width="40" height="40"&gt;&lt;/a&gt;
+
+        {{#twitter}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/twitter.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/twitter}}
+        {{#linkedin}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/linkedin.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/linkedin}}
+        {{#github}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/github.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/github}}
+        {{#google}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/google-plus.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/google}}
+        {{#facebook}}
+            &lt;a target="_blank" href="{{.}}"&gt;&lt;img src="{{settings.url}}/img/facebook.png" width="40" height="40"&gt;&lt;/a&gt;
+        {{/facebook}}
+
+    &lt;/aside&gt;
+{{/follow}}
+
+{{#customValues}}
+    &lt;aside&gt;
+        &lt;h3&gt;{{title}}&lt;/h3&gt;
+
+        &lt;p&gt;{{{value}}}&lt;/p&gt;
+    &lt;/aside&gt;
+{{/customValues}}
+
+&lt;aside&gt;
+    &lt;h3&gt;Latest Posts&lt;/h3&gt;
+
+    &lt;ul class="list-group"&gt;
+        {{#latestPosts}}
+            &lt;li&gt;&lt;a href="{{settings.url}}/post/{{slug}}.html"&gt;{{title}}&lt;/a&gt;&lt;/li&gt;
+        {{/latestPosts}}
+    &lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Categories&lt;/h3&gt;
+
+    &lt;ul class="list-group"&gt;
+        {{#categories}}
+            &lt;li&gt;&lt;a class="lowercase" href="{{settings.url}}/category/{{.}}.html"&gt;{{.}}&lt;/a&gt;&lt;/li&gt;
+        {{/categories}}
+    &lt;/ul&gt;
+&lt;/aside&gt;
+
+{{#archives}}
+    &lt;aside&gt;
+        &lt;h3&gt;Archives&lt;/h3&gt;
+
+        &lt;p&gt;{{{.}}}&lt;/p&gt;
+    &lt;/aside&gt;
+{{/archives}}
+
+{{#tagsCloud}}
+    &lt;aside&gt;
+        &lt;h3&gt;Tags Cloud&lt;/h3&gt;
+
+        &lt;ul class="list-inline"&gt;
+            {{{.}}}
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+{{/tagsCloud}}</code></pre>
+<p>As you can see, we have used various Layout Variables to construct sidebar sections.</p>
+<p><strong>Few things to notice here:</strong></p>
+<ul>
+<li>For follow section, you will need to upload relevant social icon images for twitter, facebook, etc</li>
+<li>To iterate over flat values array, you would use <code>{{.}}</code>, this will automatically print current value inside variable</li>
+<li>To show html tags un-escaped, you need to use three curly braces notation eg <code>{{{.}}}</code></li>
+<li>Whole blog data is contained in <strong>admin/data/blog.json</strong> file which is then copied into <strong>public/data/blog.json</strong> file.</li>
+</ul>
+<p>Finally to apply your new layout, from Settings &gt; General Settings, specify <strong>initializr</strong> as name for the <strong>Layout Name</strong> option and hit the <strong>Generate Blog</strong> button on the top right.</p>
+<p>And that concludes the creation of a template, of course explaining each and everything takes bit of time but once you know basics of HTML and <a href="https://mustache.github.io/">mustache template</a>, you should be able to create a layout fast.</p>
+<hr />
+<p><a href="https://bloggercms.github.io/post/new-layout-initializr.html"><strong>Download This Layout</strong></a></p></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/Tutorial.html">Tutorial</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/bloggercms.html">bloggercms</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/template.html">template</a>&nbsp;&nbsp;
+                        </div>
+                
                     <hr>
                 </article>
                 <article>
                     <h3><a href="https://bloggercms.github.io/post/new-layout-initializr.html">New Layout: Initializr</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 09, 2015 12:05 AM
+                
+                        <hr>
+                        <p class="post-content"><p>Here is new layout based on <a href="http://www.initializr.com/try">Responsive</a> template of <a href="http://www.initializr.com/">Initializr</a> (<a href="http://verekia.com/initializr/responsive-template">see its features</a>) for the BloggerCMS:</p>
+<p><img src="https://bloggercms.github.io/images/14285298795525a2d72b648.png" alt="enter image description here" /></p>
+<hr />
+<h2>How to Use It</h2>
+<ul>
+<li><a href="https://bloggercms.github.io/themes/initializr.zip">Download the layout</a></li>
+<li>Extract it to <strong>layouts</strong> folder</li>
+<li>Go to <em>Settings &gt; General Settings</em> and for the field <strong>Layout Name</strong>, specify its folder name eg <strong>initializr</strong> and that's it.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> You can always change <em>folder name</em> for the layout and then specify that as <strong>Layout Name</strong></p>
+</blockquote>
+<h2>How was it created ?</h2>
+<p>See <a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></p></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/Layouts.html">Layouts</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/initializr.html">initializr</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
+                        </div>
                 
                     <hr>
                 </article>
@@ -82,17 +936,180 @@
                     <h3><a href="https://bloggercms.github.io/post/how-to-add-images-to-posts-and-pages.html">How to Add Images to Posts and Pages</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 08, 2015 08:28 PM
                 
+                        <hr>
+                        <p class="post-content"><p>You can use <strong>Image Manager</strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:</p>
+<ul>
+<li>Go to Image Manager page</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/1428516963552570634aff2.gif" alt="enter image description here" /></p>
+<ul>
+<li>Select your image and click on the green Upload button</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/1428516967552570678d937.gif" alt="enter image description here" /></p>
+<ul>
+<li>When you hit the upload button, image will be uploaded in <strong>public/images</strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/1428517370552571fa88926.gif" alt="enter image description here" /></p>
+<ul>
+<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G</kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/14285176465525730e530cc.gif" alt="enter image description here" /></p></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/Tutorial.html">Tutorial</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/image.html">image</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/imagemanager.html">imagemanager</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/page.html">page</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/post.html">post</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
+                        </div>
+                
                     <hr>
                 </article>
                 <article>
                     <h3><a href="https://bloggercms.github.io/post/how-to-add-disqus-commenting-to-posts.html">How to Add Disqus Commenting to Posts</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 07, 2015 07:52 PM
                 
+                        <hr>
+                        <p class="post-content"><p>If you notice, under each post on this blog there is Comments section powered by excellent <a href="https://disqus.com/">Disqus</a>:</p>
+<p><img src="https://bloggercms.github.io/images/142843076855241fb037206.gif" alt="enter image description here" /></p>
+<hr />
+<p>To add Disqus commenting to your blog, please follow these steps:</p>
+<ul>
+<li><a href="https://disqus.com/">Create an account on Disqus</a></li>
+<li>Once you have registered, login and then go to <a href="https://disqus.com/admin/create/">Add Disqus to your site</a> page and fill in the details of your blog</li>
+</ul>
+<p><img src="https://bloggercms.github.io/images/14284312345524218240bc8.png" alt="enter image description here" /></p>
+<p>On the next page, choose <strong>Universal Code</strong> option:</p>
+<p><img src="https://bloggercms.github.io/images/1428431430552422464a84a.gif" alt="enter image description here" /></p>
+<p>They would give you bunch of code like:</p>
+<pre><code>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'bloggercms';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</code></pre>
+<p>From that code, we are only interested in <strong>disqus_shortname</strong>. In above code it appears here:</p>
+<pre><code>var disqus_shortname = 'bloggercms';</code></pre>
+<p>In this case, our shortname is <strong>bloggercms</strong> (in your case, it will be different) which is all we need not whole code. We need to update this shortname (bloggercms) in BloggerCMS settings page to enable Disqus commenting.</p>
+<p>Go to Settings page and on General Settings tab specify your Disqus unique/shortname for the <strong>Disqus Shortname</strong> field and hit Update button:</p>
+<p><img src="https://bloggercms.github.io/images/14284319185524242e2c2cd.gif" alt="enter image description here" /></p>
+<p>And that's it, your all posts will now have Disqus commenting below them. </p>
+<p><em>Note: Make sure to update your blog through Generate Blog button on the top.</em></p>
+<hr />
+<h2>Adding Disqus to Custom BloggerCMS Layouts</h2>
+<p>If you want create custom layout for BloggerCMS and want to add Disqus commenting, just put below snippet at appropriate place in post.mustache file:</p>
+<pre><code>&lt;!-- Comment form --&gt;
+&lt;div class="well"&gt;
+    &lt;div id="disqus_thread"&gt;&lt;/div&gt;
+    &lt;script type="text/javascript"&gt;
+        var disqus_shortname = '{{settings.disqus}}'; // required: replace example with your forum shortname
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    &lt;/script&gt;
+    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;Comments
+        powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+    &lt;a href="http://disqus.com" class="dsq-brlink"&gt;Comments powered by
+        &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;</code></pre></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/Tutorial.html">Tutorial</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/disqus.html">disqus</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/post.html">post</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
+                        </div>
+                
                     <hr>
                 </article>
                 <article>
                     <h3><a href="https://bloggercms.github.io/post/introducing-bloggercms.html">Introducing BloggerCMS !</a></h3>
                     <span class="glyphicon glyphicon-time"></span> April 06, 2015 02:44 PM
+                
+                        <hr>
+                        <p class="post-content"><h2>Introduction</h2>
+<p>BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing <a href="http://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax unlike other static site generators which is time-consuming. The created blogs become fully portable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. </p>
+<p>To deploy your blog, all you need is upload the static blog generated by BloggerCMS to your web host and see it in action. You don't need any server-side language support or database on your hosting provider because everything generated by BloggerCMS is pure HTML. You can also host your blog on <a href="https://pages.github.com/">Github</a> (this blog demo runs on github), <a href="http://www.dropboxwiki.com/tips-and-tricks/host-websites-with-dropbox">Dropbox</a> or any other service you like. The good thing is that you can easily backup your blog too because it's just a folder containing your blog. </p>
+<p>BloggerCMS comes with fully responsive blog template based on famous <a href="http://getbootstrap.com/">Twitter Bootstrap</a> with quite few themes to choose from. You can also create your own blog layouts, all you need to know is HTML and basics of <a href="https://mustache.github.io/">Mustache</a> template engine.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Graphical User Interface</strong> - manage your site via a browser</li>
+<li><strong>File-based</strong> - no database required</li>
+<li><strong>Truly Static</strong> - no server-side languages needed</li>
+<li><strong>Portability</strong> - copy, move, backup or version control your site easily</li>
+<li><strong>Integrated Markdown Editor</strong> - no need to know Markdown</li>
+<li><strong>Built-in Images Manager</strong></li>
+<li><strong>Disqus Commenting System</strong></li>
+<li><strong>Search Posts Feature</strong></li>
+<li><strong>Responsive Layout</strong> - get started easily with the included responsive layout</li>
+<li><strong>RSS Support</strong></li>
+<li><strong>Sitemap Support</strong></li>
+<li><strong>Google Analytics</strong></li>
+<li><strong>Code Highlight Support</strong></li>
+<li><strong>Tags Cloud Support</strong></li>
+<li><strong>Social Follow Section</strong></li>
+<li><strong>Categories Section</strong></li>
+<li><strong>Archives Section</strong></li>
+</ul>
+<h2>Screenshots</h2>
+<p>Although, you can create your own custom layouts but here are screenshots for <strong>default</strong> layout with different themes:</p>
+<p><img src="https://bloggercms.github.io/images/14284049925523bb002de49.png" alt="Default Theme" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049865523bafaea4be.png" alt="Darkly Theme" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049955523bb0381ec8.png" alt="Journal Theme" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049985523bb06b28d7.png" alt="Slate Theme" /></p>
+<p><img src="https://bloggercms.github.io/images/14284050065523bb0e769a3.png" alt="Yeti Theme" /></p>
+<p><img src="https://bloggercms.github.io/images/14284050035523bb0b5b371.png" alt="Superhere Theme" /></p>
+<hr />
+<p>...and here are some of the screenshots for administration interface:</p>
+<p><img src="https://bloggercms.github.io/images/14284049565523badca2571.png" alt="Dashboard" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049305523bac2f0d6c.png" alt="Add Post" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049675523bae7ef288.png" alt="View Posts" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049445523bad0ef14d.png" alt="Categories" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049645523bae48759c.png" alt="Tags" /></p>
+<p><img src="https://bloggercms.github.io/images/14284049615523bae133905.png" alt="Images Manager" /></p>
+<hr />
+<h2>Getting Started</h2>
+<p><a href="https://bloggercms.github.io/page/get-started.html">Read Getting Started Guide</a></p></p>
+                        <br/>
+                
+                        <div class="post-info">
+                                <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/category/BloggerCMS.html">BloggerCMS</a>
+                                &nbsp;&nbsp;
+                
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/admin.html">admin</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/bloggercms.html">bloggercms</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/cms.html">cms</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/intro.html">intro</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/php.html">php</a>&nbsp;&nbsp;
+                        </div>
                 
                     <hr>
                 </article>

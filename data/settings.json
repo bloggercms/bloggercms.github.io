@@ -8,5 +8,5 @@
 	"theme": "slate.min.css",
 	"disqus": "bloggercms",
 	"analytics": "",
-	"only_titles": "true"
+	"only_titles": ""
 }
