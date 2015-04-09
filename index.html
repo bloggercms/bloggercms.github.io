@@ -543,7 +543,7 @@ mustache extension.</p>
                 {{&gt; article}}
             {{/homePosts}}
             &lt;br&gt;
-            &lt;a href="posts.html"&gt;&amp;rarr; View All Posts&lt;/a&gt;
+            &lt;a href="posts.html"&gt;→ View All Posts&lt;/a&gt;
         &lt;/article&gt;
 
         {{&gt; side}}
@@ -749,13 +749,13 @@ But we also need to add date, category and tags information, so modify it like:
                         {{#post.category}}
                             <strong>Category:</strong>
                             <a class="lowercase" href="{{settings.url}}/category/{{category}}.html">{{post.category}}</a>
-                            &nbsp;&nbsp;
+                              
                         {{/post.category}}
 
                         <strong>Tags:</strong>
 
                         {{#post.tags}}
-                            <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>&nbsp;&nbsp;
+                            <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>  
                         {{/post.tags}}
                     </div>
                 </section>
@@ -786,13 +786,13 @@ You would notice partials>article.mustache file is used in various files, so let
                 {{#category}}
                     <strong>Category:</strong>
                     <a class="lowercase" href="{{settings.url}}/category/{{category}}.html">{{category}}</a>
-                    &nbsp;&nbsp;
+                      
                 {{/category}}
 
                 <strong>Tags:</strong>
 
                 {{#tags}}
-                    <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>&nbsp;&nbsp;
+                    <a class="lowercase" href="{{settings.url}}/tag/{{.}}.html">{{.}}</a>  
                 {{/tags}}
             </div>
 
@@ -907,6 +907,10 @@ Finally to apply your new layout, from Settings > General Settings, specify **in
 
 And that concludes the creation of a template, of course explaining each and everything takes bit of time but once you know basics of HTML and [mustache template][16], you should be able to create a layout fast.
 
+----------
+
+## [Download This Layout][17] ##
+
   [1]: https://bloggercms.github.io/post/new-layout-initializr.html
   [2]: http://www.initializr.com/try
   [3]: http://www.initializr.com/
@@ -922,7 +926,8 @@ And that concludes the creation of a template, of course explaining each and eve
   [13]: https://bloggercms.github.io/tag/tutorial.html
   [14]: http://www.initializr.com/
   [15]: http://www.initializr.com/try
-  [16]: https://mustache.github.io/</p>
+  [16]: https://mustache.github.io/
+  [17]: https://bloggercms.github.io/post/new-layout-initializr.html</p>
                         <br/>
                 
                         <div class="post-info">
