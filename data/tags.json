@@ -12,5 +12,6 @@
 	"page",
 	"imagemanager",
 	"layout",
-	"initializr"
+	"initializr",
+	"template"
 ]
