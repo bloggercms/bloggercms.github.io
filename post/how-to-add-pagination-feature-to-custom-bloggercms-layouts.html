@@ -138,7 +138,7 @@ var $nextPostSelector = $('.nextpost');
 ///////////////////////////////////////////////////</code></pre>
 <p>Here you need to specify selectors for previous and next links. Notice that we have already matched them with class value of links given at the top. If you use some other class or id for your next/prev links, you will need to match their selectors in above two variables and that's all.</p>
 <hr />
-<p>For technical part of it, we construct prev and next links dynamically by finding out current page url and then getting all posts data from <strong>public/data/blog.json</strong> file through ajax request. We compare current page url with different post slugs from the data file and once matched, we construct next and prev links and exit out of <code>each</code> using <code>return false</code> instantly.</p>
+<p>For technical part of it, we construct prev and next links dynamically by finding out current page url and then getting all posts data from <strong>public/data/blog.json</strong> file through ajax request. We compare current page url with different post slugs from the data file and once matched, we construct next and prev links and exit out of <code>each</code> using <code>return false</code> instantly. You can also check out <strong>post.mustache</strong> file in <strong>default</strong> layout to see how it's done.</p>
 <blockquote>
 <p><strong>Note:</strong>  You must include jQuery file before above pagination code.</p>
 </blockquote></p>
@@ -152,9 +152,9 @@ var $nextPostSelector = $('.nextpost');
                     <span class="glyphicon glyphicon-bookmark"></span>
 
                         <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
-                        <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
                         <a class="lowercase" href="https://bloggercms.github.io/tag/pagination.html">pagination</a>&nbsp;&nbsp;
                         <a class="lowercase" href="https://bloggercms.github.io/tag/paging.html">paging</a>&nbsp;&nbsp;
+                        <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
                 </div>
 
             </article>
