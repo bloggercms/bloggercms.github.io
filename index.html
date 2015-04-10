@@ -67,110 +67,81 @@
     <div class="row">
         <div class="col-md-8 main-content">
                 <article>
-                    <h3><a href="https://bloggercms.github.io/post/how-to-add-search-feature-to-custom-bloggercms-layouts.html">How to Add Search Feature to Custom BloggerCMS Layouts</a></h3>
-                    <span class="glyphicon glyphicon-time"></span> April 09, 2015 04:03 PM
+                    <h3><a href="https://bloggercms.github.io/post/how-to-add-pagination-feature-to-custom-bloggercms-layouts.html">How to Add Pagination Feature to Custom BloggerCMS Layouts</a></h3>
+                    <span class="glyphicon glyphicon-time"></span> April 10, 2015 10:40 AM
                 
                         <hr>
-                        <p class="post-content"><p>To add Search feature to your custom layout, create a search box and a button something like:</p>
-<pre><code>&lt;input type="text" class="searchQuery" placeholder="Search Posts"&gt;
-&lt;button type="button" class="searchButton"&gt;Submit&lt;/button&gt;</code></pre>
-<p>Now in your custom layout, copy <strong>search.js</strong> file from <strong>default/js</strong> folder to your custom layout folder and include it in your layout by placing this code in your layout footer file:</p>
-<pre><code>&lt;script&gt;
-    var __blogURL = '{{settings.url}}';
-&lt;/script&gt;
+                        <p class="post-content"><p>Open up <strong>post.mustache</strong> file in editor of your choice and below the post body, enter pagination links something like:</p>
+<pre><code>&lt;a class="prevpost"&gt;Prev Post&lt;/a&gt;
+&lt;a class="nextpost"&gt;Next Post&lt;/a&gt;</code></pre>
+<p>Notice that here we are using <code>prevpost</code> and <code>nextpost</code> classes for the prev and next links, we will utilize these in javascript below.</p>
+<p>Below your footer partial, enter this javascript code:</p>
+<pre><code>&lt;!-- for pagination --&gt;
+&lt;script&gt;
+    $(function () {
 
-&lt;script src="{{settings.url}}/js/search.js"&gt;&lt;/script&gt;</code></pre>
-<blockquote>
-<p><strong>Note:</strong> Make sure to include jQuery before search.js file.</p>
-</blockquote>
-<p>Open search.js file in some text editor and you will see it contains:</p>
-<pre><code>$(function () {
+        ///////////////////////////////////////////////////
+        // class/id/selector of prev link
+        var $prevPostSelector = $('.prevpost');
+        var $nextPostSelector = $('.nextpost');
+        ///////////////////////////////////////////////////
 
-    ////////////// EDIT BELOW THREE VARS ///////////////
-    // class/id/selector of search keyword textbox
-    var $searchKeywordSelector = $('.searchQuery');
-    // class/id/selector of search button
-    var $searchButtonSelector = $('.searchButton');
-    // class/id/selector for element where results will show
-    var $searchResultsSelector = $('.main-content');
-    ///////////////////////////////////////////////////
-
-    // now search for blog posts
-    $searchButtonSelector.click(function () {
-        var foundPosts = '';
-        var searchQuery = $.trim($searchKeywordSelector.val());
-        var queryRegex = new RegExp(searchQuery, "ig");
-
-        // don't search if nothing specified
-        if (!searchQuery) {
-            return false;
-        }
+        var pageArray = document.location.href.split('/');
+        var currentPageSlug = pageArray[pageArray.length - 1];
 
         $.ajax({
             url: __blogURL + "/data/blog.json",
             type: "GET",
             dataType: "json",
             success: function (data) {
-                $.each(data.posts, function (i, post) {
-                    var postBody = $("&lt;div/&gt;").html(post.body).text();
+                if (data.posts !== undefined &amp;&amp; data.posts !== null) {
+                    $.each(data.posts, function (i, post) {
+                        if (post.slug + '.html' === currentPageSlug) {
 
-                    if (post.title.search(queryRegex) != -1 || postBody.search(queryRegex) != -1) {
-                        var slug = post.title.replace(/[^a-zA-Z0-9\/_|+ -]/, '');
-                        slug = $.trim(slug).toLowerCase();
-                        slug = slug.replace(/\s+/g,' ');
-                        slug = slug.replace(/\W/g, ' ');
-                        slug = slug.replace(/\s+/g, '-');
+                            var prevPost = data.posts[i - 1];
+                            var nextPost = data.posts[i + 1];
 
-                        if (slug) {
-                            foundPosts += '&lt;h3&gt;&lt;a href="' + data.settings.url + '/post/' + slug + '.html"&gt;' + post.title + '&lt;/a&gt;&lt;/h3&gt;&lt;hr&gt;';
+                            if (prevPost === undefined || prevPost === null) {
+                                // hide previous link if it is first post
+                                $prevPostSelector.hide();
+                            }
+                            else {
+                                $prevPostSelector.attr('href', __blogURL + '/post/' + prevPost.slug + '.html');
+                            }
+
+                            if (nextPost === undefined || nextPost === null) {
+                                // hide previous link if it is last post
+                                $nextPostSelector.hide();
+                            }
+                            else {
+                                $nextPostSelector.attr('href', __blogURL + '/post/' + nextPost.slug + '.html');
+                            }
+
+                            return false; // break out of each
                         }
-                    }
-                });
-
-                if (foundPosts) {
-                    $searchResultsSelector.html('').html(foundPosts);
-                }
-                else {
-                    alert('No results found!');
+                    });
                 }
             },
             error: function (e) {
-                console.log("error in searching...");
+                $prevPostSelector.hide();
+                $nextPostSelector.hide();
             }
         });
-    });
 
-    // on Enter keyboard button, click on search button
-    $searchKeywordSelector.keydown(function (event) {
-        if (event.keyCode == 13) {
-            $searchButtonSelector.click();
-        }
     });
-
-});</code></pre>
-<p>Finally you need to edit these variables:</p>
-<pre><code>////////////// EDIT BELOW FOUR VARS ///////////////
-// class/id/selector of search keyword textbox
-var $searchKeywordSelector = $('.searchQuery');
-// class/id/selector of search button
-var $searchButtonSelector = $('.searchButton');
-// class/id/selector for element where results will show
-var $searchResultsSelector = $('.main-content');
+&lt;/script&gt;</code></pre>
+<p>From above code, we only need to modify these lines:</p>
+<pre><code>///////////////////////////////////////////////////
+// class/id/selector of prev link
+var $prevPostSelector = $('.prevpost');
+var $nextPostSelector = $('.nextpost');
 ///////////////////////////////////////////////////</code></pre>
-<ul>
-<li><code>$searchKeywordSelector</code> should match your search input/textbox selector</li>
-<li><code>$searchButtonSelector</code> should match selector of search button</li>
-<li><code>$searchResultsSelector</code> should match with element selector where you want to show search results</li>
-</ul>
-<p>In above case, search textbox and button match these:</p>
-<pre><code>&lt;input type="text" class="searchQuery" placeholder="Search Posts"&gt;
-&lt;button type="button" class="searchButton"&gt;Submit&lt;/button&gt;</code></pre>
-<p>And for results element (<code>.main-content</code>), you could have for example:</p>
-<pre><code>&lt;div class="main-content"&gt;Search results will be shown here&lt;/div&gt;</code></pre>
-<p>Of course, you can give any class/id/attribute to your search input, button and results element but you should match them in above three variables.</p>
+<p>Here you need to specify selectors for previous and next links. Notice that we have already matched them with class value of links given at the top. If you use some other class or id for your next/prev links, you will need to match their selectors in above two variables and that's all.</p>
 <hr />
-<p>For technical part of it, you would notice in order to search, we trigger an ajax request and get all contents of json file present in <strong>public/data/blog.json</strong> file, this file contains whole blog data. Then we iterate over each post and compare title and body of each post with search query and for found results, we create links with titles.</p>
-<p>Therefore the <strong>public/data/blog.json</strong>  file must be present in order for search to work. This file is automatically generated by BloggerCMS.</p></p>
+<p>For technical part of it, we construct prev and next links dynamically by finding out current page url and then getting all posts data from <strong>public/data/blog.json</strong> file through ajax request. We compare current page url with different post slugs from the data file and once matched, we construct next and prev links and exit out of <code>each</code> using <code>return false</code> instantly.</p>
+<blockquote>
+<p><strong>Note:</strong>  You must include jQuery file before above pagination code.</p>
+</blockquote></p>
                         <br/>
                 
                         <div class="post-info">
@@ -181,7 +152,9 @@ var $searchResultsSelector = $('.main-content');
                             <span class="glyphicon glyphicon-bookmark"></span>
                 
                                 <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/search.html">search</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/pagination.html">pagination</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/paging.html">paging</a>&nbsp;&nbsp;
                         </div>
                 
                     <hr>
@@ -230,6 +203,7 @@ var $searchResultsSelector = $('.main-content');
                 </div>
         
                 <ul class="list-group">
+                        <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-pagination-feature-to-custom-bloggercms-layouts.html">How to Add Pagination Feature to Custom BloggerCMS Layouts</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-search-feature-to-custom-bloggercms-layouts.html">How to Add Search Feature to Custom BloggerCMS Layouts</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/new-layout-initializr.html">New Layout: Initializr</a></li>
@@ -270,20 +244,22 @@ var $searchResultsSelector = $('.main-content');
                     <div class="panel-body">
                         <ul class="list-inline">
                             <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/admin.html" title="'admin' returned a count of 0">admin</a>
-<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 1">bloggercms</a>
+<a style="font-size: 18px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 1">bloggercms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/cms.html" title="'cms' returned a count of 0">cms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/disqus.html" title="'disqus' returned a count of 0">disqus</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/image.html" title="'image' returned a count of 0">image</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/imagemanager.html" title="'imagemanager' returned a count of 0">imagemanager</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/initializr.html" title="'initializr' returned a count of 0">initializr</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/intro.html" title="'intro' returned a count of 0">intro</a>
-<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/layout.html" title="'layout' returned a count of 2">layout</a>
+<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/layout.html" title="'layout' returned a count of 3">layout</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/page.html" title="'page' returned a count of 0">page</a>
+<a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/pagination.html" title="'pagination' returned a count of 0">pagination</a>
+<a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/paging.html" title="'paging' returned a count of 0">paging</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/php.html" title="'php' returned a count of 0">php</a>
-<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/post.html" title="'post' returned a count of 1">post</a>
+<a style="font-size: 18px" class="tag_cloud" href="https://bloggercms.github.io/tag/post.html" title="'post' returned a count of 1">post</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/search.html" title="'search' returned a count of 0">search</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/template.html" title="'template' returned a count of 0">template</a>
-<a style="font-size: 21px" class="tag_cloud" href="https://bloggercms.github.io/tag/tutorial.html" title="'tutorial' returned a count of 1">tutorial</a>
+<a style="font-size: 30px" class="tag_cloud" href="https://bloggercms.github.io/tag/tutorial.html" title="'tutorial' returned a count of 3">tutorial</a>
 
                         </ul>
                     </div>
