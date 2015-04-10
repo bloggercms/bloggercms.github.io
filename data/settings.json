@@ -3,11 +3,11 @@
 	"title": "BloggerCMS Blog",
 	"tagline": "BloggerCMS Official Blog",
 	"author": "BloggerCMS",
-	"number_posts": "10",
+	"number_posts": null,
 	"layout": "default",
 	"theme": "slate.min.css",
 	"disqus": "bloggercms",
 	"analytics": "",
 	"only_titles": "",
-	"generated": "1"
+	"generated": ""
 }
