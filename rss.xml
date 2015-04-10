@@ -6,6 +6,13 @@
 <description>BloggerCMS Official Blog</description>
 <language>en-us</language>
 <item>
+<title>BloggerCMS  Added to List of Static Site Generators !</title>
+<description><![CDATA[<p>Nice to know that BloggerCMS has been added to definitive list of static site generators :)</p>
+<p><strong><a href="https://github.com/pinceladasdaweb/Static-Site-Generators#php">View List</a></strong></p>]]></description>
+<link>https://bloggercms.github.io/post/bloggercms-added-to-list-of-static-site-generators.html</link>
+<pubDate>Fri, 10 Apr 2015 17:30:00 +0200</pubDate>
+</item>
+<item>
 <title>How to Add Pagination Feature to Custom BloggerCMS Layouts</title>
 <description><![CDATA[<p>Open up <strong>post.mustache</strong> file in editor of your choice and below the post body, enter pagination links something like:</p>
 <pre><code>&lt;a class="prevpost"&gt;Prev Post&lt;/a&gt;

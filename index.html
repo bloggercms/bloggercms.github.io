@@ -71,94 +71,22 @@
     <div class="row">
         <div class="col-md-8 main-content">
                 <article>
-                    <h3><a href="https://bloggercms.github.io/post/how-to-add-pagination-feature-to-custom-bloggercms-layouts.html">How to Add Pagination Feature to Custom BloggerCMS Layouts</a></h3>
-                    <span class="glyphicon glyphicon-time"></span> April 10, 2015 10:40 AM
+                    <h3><a href="https://bloggercms.github.io/post/bloggercms-added-to-list-of-static-site-generators.html">BloggerCMS  Added to List of Static Site Generators !</a></h3>
+                    <span class="glyphicon glyphicon-time"></span> April 10, 2015 05:30 PM
                 
                         <hr>
-                        <p class="post-content"><p>Open up <strong>post.mustache</strong> file in editor of your choice and below the post body, enter pagination links something like:</p>
-<pre><code>&lt;a class="prevpost"&gt;Prev Post&lt;/a&gt;
-&lt;a class="nextpost"&gt;Next Post&lt;/a&gt;</code></pre>
-<p>Notice that here we are using <code>prevpost</code> and <code>nextpost</code> classes for the prev and next links, we will utilize these in javascript below.</p>
-<p>Below your footer partial, enter this javascript code:</p>
-<pre><code>&lt;!-- for pagination --&gt;
-&lt;script&gt;
-    $(function () {
-
-        ///////////////////////////////////////////////////
-        // class/id/selector of prev link
-        var $prevPostSelector = $('.prevpost');
-        var $nextPostSelector = $('.nextpost');
-        ///////////////////////////////////////////////////
-
-        var pageArray = document.location.href.split('/');
-        var currentPageSlug = pageArray[pageArray.length - 1];
-
-        $.ajax({
-            url: __blogURL + "/data/blog.json",
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                if (data.posts !== undefined &amp;&amp; data.posts !== null) {
-                    $.each(data.posts, function (i, post) {
-                        if (post.slug + '.html' === currentPageSlug) {
-
-                            var prevPost = data.posts[i - 1];
-                            var nextPost = data.posts[i + 1];
-
-                            if (prevPost === undefined || prevPost === null) {
-                                // hide previous link if it is first post
-                                $prevPostSelector.hide();
-                            }
-                            else {
-                                $prevPostSelector.attr('href', __blogURL + '/post/' + prevPost.slug + '.html');
-                            }
-
-                            if (nextPost === undefined || nextPost === null) {
-                                // hide previous link if it is last post
-                                $nextPostSelector.hide();
-                            }
-                            else {
-                                $nextPostSelector.attr('href', __blogURL + '/post/' + nextPost.slug + '.html');
-                            }
-
-                            return false; // break out of each
-                        }
-                    });
-                }
-            },
-            error: function (e) {
-                $prevPostSelector.hide();
-                $nextPostSelector.hide();
-            }
-        });
-
-    });
-&lt;/script&gt;</code></pre>
-<p>From above code, we only need to modify these lines:</p>
-<pre><code>///////////////////////////////////////////////////
-// class/id/selector of prev link
-var $prevPostSelector = $('.prevpost');
-var $nextPostSelector = $('.nextpost');
-///////////////////////////////////////////////////</code></pre>
-<p>Here you need to specify selectors for previous and next links. Notice that we have already matched them with class value of links given at the top. If you use some other class or id for your next/prev links, you will need to match their selectors in above two variables and that's all.</p>
-<hr />
-<p>For technical part of it, we construct prev and next links dynamically by finding out current page url and then getting all posts data from <strong>public/data/blog.json</strong> file through ajax request. We compare current page url with different post slugs from the data file and once matched, we construct next and prev links and exit out of <code>each</code> using <code>return false</code> instantly. You can also check out <strong>post.mustache</strong> file in <strong>default</strong> layout to see how it's done.</p>
-<blockquote>
-<p><strong>Note:</strong>  You must include jQuery file before above pagination code.</p>
-</blockquote></p>
+                        <p class="post-content"><p>Nice to know that BloggerCMS has been added to definitive list of static site generators :)</p>
+<p><strong><a href="https://github.com/pinceladasdaweb/Static-Site-Generators#php">View List</a></strong></p></p>
                         <br/>
                 
                         <div class="post-info">
                                 <span class="glyphicon glyphicon-folder-open"></span> &nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/category/Layouts.html">Layouts</a>
+                                <a class="lowercase" href="https://bloggercms.github.io/category/BloggerCMS.html">BloggerCMS</a>
                                 &nbsp;&nbsp;
                 
                             <span class="glyphicon glyphicon-bookmark"></span>
                 
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/pagination.html">pagination</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/paging.html">paging</a>&nbsp;&nbsp;
-                                <a class="lowercase" href="https://bloggercms.github.io/tag/tutorial.html">tutorial</a>&nbsp;&nbsp;
+                                <a class="lowercase" href="https://bloggercms.github.io/tag/bloggercms.html">bloggercms</a>&nbsp;&nbsp;
                         </div>
                 
                     <hr>
@@ -207,6 +135,7 @@ var $nextPostSelector = $('.nextpost');
                 </div>
         
                 <ul class="list-group">
+                        <li class="list-group-item"><a href="https://bloggercms.github.io/post/bloggercms-added-to-list-of-static-site-generators.html">BloggerCMS  Added to List of Static Site Generators !</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-pagination-feature-to-custom-bloggercms-layouts.html">How to Add Pagination Feature to Custom BloggerCMS Layouts</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-add-search-feature-to-custom-bloggercms-layouts.html">How to Add Search Feature to Custom BloggerCMS Layouts</a></li>
                         <li class="list-group-item"><a href="https://bloggercms.github.io/post/how-to-create-a-layout-for-bloggercms.html">How to Create a Layout for BloggerCMS</a></li>
@@ -248,7 +177,7 @@ var $nextPostSelector = $('.nextpost');
                     <div class="panel-body">
                         <ul class="list-inline">
                             <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/admin.html" title="'admin' returned a count of 0">admin</a>
-<a style="font-size: 18px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 1">bloggercms</a>
+<a style="font-size: 24px" class="tag_cloud" href="https://bloggercms.github.io/tag/bloggercms.html" title="'bloggercms' returned a count of 2">bloggercms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/cms.html" title="'cms' returned a count of 0">cms</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/disqus.html" title="'disqus' returned a count of 0">disqus</a>
 <a style="font-size: 12px" class="tag_cloud" href="https://bloggercms.github.io/tag/image.html" title="'image' returned a count of 0">image</a>
