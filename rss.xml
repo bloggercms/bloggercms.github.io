@@ -14,7 +14,8 @@
 <p><strong>How to Use That?</strong></p>
 <p>If you notice in default layout; <strong>partials &gt; sidebar.mustache</strong> file, we are showing up all custom values in sidebar through this snippet of code:</p>
 <pre><code>{{#customValues}}
-        &lt;div class="panel panel-primary"&gt;&lt;div class="panel-heading"&gt;&lt;strong&gt;{{title}}&lt;/strong&gt;&lt;/div&gt;
+        &lt;div class="panel panel-primary"&gt;
+            &lt;div class="panel-heading"&gt;&lt;strong&gt;{{title}}&lt;/strong&gt;&lt;/div&gt;
             {{{value}}}
         &lt;/div&gt;
 {{/customValues}}</code></pre>
@@ -48,7 +49,7 @@ Value 2</code></pre>
 <pre><code>[
     {
         "title": "BloggerCMS Intro Header On Homepage",
-        "value": "                &lt;div class="\"well" clearfix="" text-center=""&gt;\r\n                  &lt;h1&gt;&lt;i class="\"fa" fa-edit=""&gt; BloggerCMS\r\n                  &lt;/i&gt;&lt;/h1&gt;&lt;p&gt;Create your blog in less than five minutes !\r\n                  See &lt;a href="\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\""&gt;Introductory Post or &lt;/a&gt;&lt;a href="\"https:\/\/bloggercms.github.io\/page\/get-started.html\""&gt;Getting Started Guide\r\n                \r\n                &lt;br&gt;&lt;/br&gt;",
+        "value": " &lt;div class="\"well" clearfix="" text-center=""&gt;&lt;br&gt;&lt;h1&gt;&lt;i class="\"fa" fa-edit=""&gt; BloggerCMS&lt;/i&gt;&lt;/h1&gt;&lt;p&gt;Create your blog in less than five minutes !&lt;/p&gt;See &lt;a href="\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\""&gt;Introductory Post&lt;/a&gt; or &lt;a href="\"https:\/\/bloggercms.github.io\/page\/get-started.html\""&gt;Getting Started Guide&lt;/a&gt;",
         "id": 1428735262
     }
 ]</code></pre>
@@ -57,7 +58,7 @@ Value 2</code></pre>
     {{{value}}}
 {{/customValues.0}}</code></pre>
 <p>Here I am using <code>0</code> because, I have only one custom value and as said before indexing starts from 0 and secondly I am only showing up value not title in my particular case.</p>
-<p>Also notice that I am using three curly braces `{{{value}}}` instead of `{{value}}` because otherwise instead of that big BloggerCMS blackbox, mustache would have displayed it's HTML code on the homepage instead of generated html.</p></a></p></div>]]></description>
+<p>Also notice that I am using three curly braces <code>{{{value}}}</code> instead of <code>{{value}}</code> because otherwise instead of that big BloggerCMS black box, mustache would have displayed it's HTML code on the homepage instead of generated html.</p>]]></description>
 <link>https://bloggercms.github.io/post/how-to-use-specific-custom-value-in-layouts.html</link>
 <pubDate>Sat, 11 Apr 2015 10:20:00 +0200</pubDate>
 </item>
