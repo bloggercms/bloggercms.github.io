@@ -77,18 +77,14 @@
 
                 <p class="post-content"><p>You might have noticed, on the <a href="https://bloggercms.github.io">homepage</a> of this blog, we have a big BloggerCMS element:</p>
 <p><img src="https://bloggercms.github.io/images/14287390505528d3ea2cb34.gif" alt="enter image description here" /></p>
-<p>That one comes through Settings page eg <strong>Settings > Custom Values</strong> tab. For it's <em>value</em> this is what I specified:</p>
-<pre><code><div class="well text-center clearfix"> <h1><i class="fa fa-edit"></i> BloggerCMS</h1> <p>Create your blog in less than five minutes !</p> See <a href="https://bloggercms.github.io/post/introducing-bloggercms.html">Introductory Post</a> or <a href="https://bloggercms.github.io/page/get-started.html">Getting Started Guide</a> </div> <br></code></pre>
+<p>That one comes through Settings page eg <strong>Settings &gt; Custom Values</strong> tab. For it's <em>value</em> this is what I specified:</p>
+<pre><code>&lt;div class="well text-center clearfix"&gt;&lt;h1&gt;&lt;i class="fa fa-edit"&gt;&lt;/i&gt; BloggerCMS&lt;/h1&gt;&lt;p&gt;Create your blog in less than five minutes !&lt;/p&gt; See &lt;a href="https://bloggercms.github.io/post/introducing-bloggercms.html"&gt;Introductory Post&lt;/a&gt; or &lt;a href="https://bloggercms.github.io/page/get-started.html"&gt;Getting Started Guide&lt;/a&gt;&lt;/div&gt;&lt;br&gt;</code></pre>
 <p><strong>How to Use That?</strong></p>
-<p>If you notice in default layout; <strong>partials > sidebar.mustache</strong> file, we are showing up all custom values in sidebar through this snippet of code:</p>
-<pre><code><!-- Custom Values from Settings page -->
-{{#customValues}}
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <strong>{{title}}</strong>
-            </div>
+<p>If you notice in default layout; <strong>partials &gt; sidebar.mustache</strong> file, we are showing up all custom values in sidebar through this snippet of code:</p>
+<pre><code>{{#customValues}}
+        &lt;div class="panel panel-primary"&gt;&lt;div class="panel-heading"&gt;&lt;strong&gt;{{title}}&lt;/strong&gt;&lt;/div&gt;
             {{{value}}}
-        </div>
+        &lt;/div&gt;
 {{/customValues}}</code></pre>
 <p>Above piece of code will iterate over all custom values and show them in sidebar with their Title on top and Value below them. Let's assume we have added three custom values and as such <strong>data/customvalues.json</strong> contains those three custom values like:</p>
 <pre><code>[
@@ -110,7 +106,7 @@
 ]</code></pre>
 <p>Let's further assume, we want to show only second custom value (Title 2) somewhere in our layout. To do so we would use this syntax:</p>
 <pre><code>{{#customValues.1}}
-{{title}}<br>
+{{title}}&lt;br&gt;
 {{value}}
 {{/customValues.1}}</code></pre>
 <p>Here we use <code>1</code> for the second custom value because array indexing starts at <code>0</code>; so first custom value will be at <code>0</code>, second one at <code>1</code>, third one at <code>2</code> and so on. When you place above mustache code somewhere in your template, it would output:</p>
@@ -120,16 +116,16 @@ Value 2</code></pre>
 <pre><code>[
     {
         "title": "BloggerCMS Intro Header On Homepage",
-        "value": "                <div class=\"well text-center clearfix\">\r\n                  <h1><i class=\"fa fa-edit\"><\/i> BloggerCMS<\/h1>\r\n                  <p>Create your blog in less than five minutes !<\/p>\r\n                  See <a href=\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\">Introductory Post<\/a> or <a href=\"https:\/\/bloggercms.github.io\/page\/get-started.html\">Getting Started Guide<\/a>\r\n                <\/div>\r\n                <br>",
+        "value": "                &lt;div class="\"well" clearfix="" text-center=""&gt;\r\n                  &lt;h1&gt;&lt;i class="\"fa" fa-edit=""&gt; BloggerCMS\r\n                  &lt;/i&gt;&lt;/h1&gt;&lt;p&gt;Create your blog in less than five minutes !\r\n                  See &lt;a href="\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\""&gt;Introductory Post or &lt;/a&gt;&lt;a href="\"https:\/\/bloggercms.github.io\/page\/get-started.html\""&gt;Getting Started Guide\r\n                \r\n                &lt;br&gt;&lt;/br&gt;",
         "id": 1428735262
     }
 ]</code></pre>
 <p>Therefore, in template's <strong>index.mustache</strong> file (since I only wanted to appear this custom value on homepage), I added this:</p>
 <pre><code>{{#customValues.0}}
-{{{value}}}
+    {{{value}}}
 {{/customValues.0}}</code></pre>
-<p>Here I am using <code>0</code> because, I have only one custom value and as said before indexing starts from <code>0</code> and secondly I am only showing up <code>value</code> not title in my particular case.</p>
-<p>Also notice that I am using three curly braces <code>{{{value}}}</code> instead of <code>{{value}}</code> because otherwise instead of that big BloggerCMS blackbox, mustache would have displayed it's HTML code on the homepage instead of generated html.</p></p>
+<p>Here I am using <code>0</code> because, I have only one custom value and as said before indexing starts from 0 and secondly I am only showing up value not title in my particular case.</p>
+<p>Also notice that I am using three curly braces `{{{value}}}` instead of `{{value}}` because otherwise instead of that big BloggerCMS blackbox, mustache would have displayed it's HTML code on the homepage instead of generated html.</p></a></p></div></p>
                 <br/><br/>
 
                 <div class="post-info">
