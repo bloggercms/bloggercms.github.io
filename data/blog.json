@@ -13,7 +13,11 @@
 		"generated": ""
 	},
 	"customValues": [
-
+		{
+			"title": "BloggerCMS Intro Header On Homepage",
+			"value": "                <div class=\"well text-center clearfix\">\r\n                  <h1><i class=\"fa fa-edit\"><\/i> BloggerCMS<\/h1>\r\n                  <p>Create your blog in less than five minutes !<\/p>\r\n                  See <a href=\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\">Introductory Post<\/a> or <a href=\"https:\/\/bloggercms.github.io\/page\/get-started.html\">Getting Started Guide<\/a>\r\n                <\/div>\r\n                <br>",
+			"id": 1428735262
+		}
 	],
 	"pages": [
 		{
