@@ -77,18 +77,18 @@
 
                 <p class="post-content"><p>You might have noticed, on the <a href="https://bloggercms.github.io">homepage</a> of this blog, we have a big BloggerCMS element:</p>
 <p><img src="https://bloggercms.github.io/images/14287390505528d3ea2cb34.gif" alt="enter image description here" /></p>
-<p>That one comes through Settings page eg <strong>Settings &gt; Custom Values</strong> tab. For it's <em>value</em> this is what I specified:</p>
-<pre><code>&lt;div class="well text-center clearfix"&gt; &lt;h1&gt;&lt;i class="fa fa-edit"&gt;&lt;/i&gt; BloggerCMS&lt;/h1&gt; &lt;p&gt;Create your blog in less than five minutes !&lt;/p&gt; See &lt;a href="https://bloggercms.github.io/post/introducing-bloggercms.html"&gt;Introductory Post&lt;/a&gt; or &lt;a href="https://bloggercms.github.io/page/get-started.html"&gt;Getting Started Guide&lt;/a&gt; &lt;/div&gt; &lt;br&gt;</code></pre>
+<p>That one comes through Settings page eg <strong>Settings > Custom Values</strong> tab. For it's <em>value</em> this is what I specified:</p>
+<pre><code><div class="well text-center clearfix"> <h1><i class="fa fa-edit"></i> BloggerCMS</h1> <p>Create your blog in less than five minutes !</p> See <a href="https://bloggercms.github.io/post/introducing-bloggercms.html">Introductory Post</a> or <a href="https://bloggercms.github.io/page/get-started.html">Getting Started Guide</a> </div> <br></code></pre>
 <p><strong>How to Use That?</strong></p>
-<p>If you notice in default layout; <strong>partials &gt; sidebar.mustache</strong> file, we are showing up all custom values in sidebar through this snippet of code:</p>
-<pre><code>&lt;!-- Custom Values from Settings page --&gt;
+<p>If you notice in default layout; <strong>partials > sidebar.mustache</strong> file, we are showing up all custom values in sidebar through this snippet of code:</p>
+<pre><code><!-- Custom Values from Settings page -->
 {{#customValues}}
-        &lt;div class="panel panel-primary"&gt;
-            &lt;div class="panel-heading"&gt;
-                &lt;strong&gt;{{title}}&lt;/strong&gt;
-            &lt;/div&gt;
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong>{{title}}</strong>
+            </div>
             {{{value}}}
-        &lt;/div&gt;
+        </div>
 {{/customValues}}</code></pre>
 <p>Above piece of code will iterate over all custom values and show them in sidebar with their Title on top and Value below them. Let's assume we have added three custom values and as such <strong>data/customvalues.json</strong> contains those three custom values like:</p>
 <pre><code>[
@@ -110,17 +110,17 @@
 ]</code></pre>
 <p>Let's further assume, we want to show only second custom value (Title 2) somewhere in our layout. To do so we would use this syntax:</p>
 <pre><code>{{#customValues.1}}
-{{title}}&lt;br&gt;
+{{title}}<br>
 {{value}}
 {{/customValues.1}}</code></pre>
 <p>Here we use <code>1</code> for the second custom value because array indexing starts at <code>0</code>; so first custom value will be at <code>0</code>, second one at <code>1</code>, third one at <code>2</code> and so on. When you place above mustache code somewhere in your template, it would output:</p>
 <pre><code>Title 2 
-Value2</code></pre>
+Value 2</code></pre>
 <p>In my case, I have only one custom value defined like:</p>
 <pre><code>[
     {
         "title": "BloggerCMS Intro Header On Homepage",
-        "value": "                &lt;div class=\"well text-center clearfix\"&gt;\r\n                  &lt;h1&gt;&lt;i class=\"fa fa-edit\"&gt;&lt;\/i&gt; BloggerCMS&lt;\/h1&gt;\r\n                  &lt;p&gt;Create your blog in less than five minutes !&lt;\/p&gt;\r\n                  See &lt;a href=\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\"&gt;Introductory Post&lt;\/a&gt; or &lt;a href=\"https:\/\/bloggercms.github.io\/page\/get-started.html\"&gt;Getting Started Guide&lt;\/a&gt;\r\n                &lt;\/div&gt;\r\n                &lt;br&gt;",
+        "value": "                <div class=\"well text-center clearfix\">\r\n                  <h1><i class=\"fa fa-edit\"><\/i> BloggerCMS<\/h1>\r\n                  <p>Create your blog in less than five minutes !<\/p>\r\n                  See <a href=\"https:\/\/bloggercms.github.io\/post\/introducing-bloggercms.html\">Introductory Post<\/a> or <a href=\"https:\/\/bloggercms.github.io\/page\/get-started.html\">Getting Started Guide<\/a>\r\n                <\/div>\r\n                <br>",
         "id": 1428735262
     }
 ]</code></pre>
@@ -139,10 +139,10 @@ Value2</code></pre>
 
                     <span class="glyphicon glyphicon-bookmark"></span>
 
-                        <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
                         <a class="lowercase" href="https://bloggercms.github.io/tag/custom.html">custom</a>&nbsp;&nbsp;
-                        <a class="lowercase" href="https://bloggercms.github.io/tag/value.html">value</a>&nbsp;&nbsp;
+                        <a class="lowercase" href="https://bloggercms.github.io/tag/layout.html">layout</a>&nbsp;&nbsp;
                         <a class="lowercase" href="https://bloggercms.github.io/tag/settings.html">settings</a>&nbsp;&nbsp;
+                        <a class="lowercase" href="https://bloggercms.github.io/tag/value.html">value</a>&nbsp;&nbsp;
                 </div>
 
             </article>
