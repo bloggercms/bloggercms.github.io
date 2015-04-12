@@ -16,5 +16,10 @@
 		"body": "<p><strong>If you have created a blog using BloggerCMS, <a href=\"mailto:sarfraznawaz2005@gmail.com\">please let us know<\/a>, we will showcase them on this page. Thanks<\/strong><\/p>\n<hr \/>\n<ul>\n<li><a href=\"https:\/\/codeinphp.github.io\">Code In PHP<\/a><\/li>\n<\/ul>",
 		"slug": "showcase",
 		"generated": "1"
+	},
+	{
+		"title": "Support",
+		"body": "If you have any questions, suggests or feature requests, please don't hesitate to [email][1] us. If you find any issues, please report them on [Issues][2] page.\r\n\r\nIf you are a developer, you can checkout the [BloggerCMS Source][3] and contribute to it.\r\n\r\n\r\n  [1]: mailto:sarfraznawaz2005@gmail.com\r\n  [2]: https:\/\/github.com\/sarfraznawaz2005\/BloggerCMS\/issues\r\n  [3]: https:\/\/github.com\/sarfraznawaz2005\/BloggerCMS",
+		"slug": "support"
 	}
 ]
