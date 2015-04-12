@@ -206,12 +206,45 @@
 			"showbody": "1"
 		}
 	],
-	"categories": [
-		{
+	"categories": {
+		"0": {
 			"category": "BloggerCMS",
 			"categoryslug": "bloggercms"
-		}
-	],
+		},
+		"1": {
+			"category": "BloggerCMS",
+			"categoryslug": "bloggercms"
+		},
+		"2": {
+			"category": "Layouts",
+			"categoryslug": "layouts"
+		},
+		"3": {
+			"category": "Layouts",
+			"categoryslug": "layouts"
+		},
+		"4": {
+			"category": "Layouts",
+			"categoryslug": "layouts"
+		},
+		"5": {
+			"category": "Layouts",
+			"categoryslug": "layouts"
+		},
+		"6": {
+			"category": "Tutorial",
+			"categoryslug": "tutorial"
+		},
+		"7": {
+			"category": "Tutorial",
+			"categoryslug": "tutorial"
+		},
+		"8": {
+			"category": "Tutorial",
+			"categoryslug": "tutorial"
+		},
+		"category": null
+	},
 	"latestPosts": [
 		{
 			"title": "How to Use Specific Custom Value in Layouts",
