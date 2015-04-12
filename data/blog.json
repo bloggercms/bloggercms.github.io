@@ -198,9 +198,42 @@
 		}
 	],
 	"categories": [
-		"BloggerCMS",
-		"Layouts",
-		"Tutorial"
+		{
+			"category": "BloggerCMS",
+			"categoryslug": null
+		},
+		{
+			"category": "BloggerCMS",
+			"categoryslug": null
+		},
+		{
+			"category": "Layouts",
+			"categoryslug": null
+		},
+		{
+			"category": "Layouts",
+			"categoryslug": null
+		},
+		{
+			"category": "Layouts",
+			"categoryslug": null
+		},
+		{
+			"category": "Layouts",
+			"categoryslug": null
+		},
+		{
+			"category": "Tutorial",
+			"categoryslug": null
+		},
+		{
+			"category": "Tutorial",
+			"categoryslug": null
+		},
+		{
+			"category": "Tutorial",
+			"categoryslug": null
+		}
 	],
 	"latestPosts": [
 		{
@@ -281,74 +314,6 @@
 			"slug": "how-to-create-a-layout-for-bloggercms",
 			"status": "publised",
 			"addpost": "addpost",
-			"generated": "1",
-			"showbody": "1"
-		},
-		{
-			"title": "New Layout: Initializr",
-			"tags": [
-				"initializr",
-				"layout"
-			],
-			"category": "Layouts",
-			"body": "<p>Here is new layout based on <a href=\"http:\/\/www.initializr.com\/try\">Responsive<\/a> template of <a href=\"http:\/\/www.initializr.com\/\">Initializr<\/a> (<a href=\"http:\/\/verekia.com\/initializr\/responsive-template\">see its features<\/a>) for the BloggerCMS:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14285298795525a2d72b648.png\" alt=\"enter image description here\" \/><\/p>\n<hr \/>\n<h2>How to Use It<\/h2>\n<ul>\n<li><a href=\"https:\/\/bloggercms.github.io\/themes\/initializr.zip\">Download the layout<\/a><\/li>\n<li>Extract it to <strong>layouts<\/strong> folder<\/li>\n<li>Go to <em>Settings &gt; General Settings<\/em> and for the field <strong>Layout Name<\/strong>, specify its folder name eg <strong>initializr<\/strong> and that's it.<\/li>\n<\/ul>\n<blockquote>\n<p><strong>Note:<\/strong> You can always change <em>folder name<\/em> for the layout and then specify that as <strong>Layout Name<\/strong><\/p>\n<\/blockquote>\n<h2>How was it created ?<\/h2>\n<p>See <a href=\"https:\/\/bloggercms.github.io\/post\/how-to-create-a-layout-for-bloggercms.html\">How to Create a Layout for BloggerCMS<\/a><\/p>",
-			"addpost": "addpost",
-			"dated": "April 09, 2015 12:05 AM",
-			"slug": "new-layout-initializr",
-			"status": "publised",
-			"generated": "1",
-			"showbody": "1"
-		},
-		{
-			"title": "How to Add Images to Posts and Pages",
-			"tags": [
-				"image",
-				"imagemanager",
-				"page",
-				"post",
-				"tutorial"
-			],
-			"category": "Tutorial",
-			"body": "<p>You can use <strong>Image Manager<\/strong> in BloggerCMS admin interface to add images to your posts as well as pages. Please follow these steps to add an image:<\/p>\n<ul>\n<li>Go to Image Manager page<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516963552570634aff2.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>Select your image and click on the green Upload button<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428516967552570678d937.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>When you hit the upload button, image will be uploaded in <strong>public\/images<\/strong> folder and page will refresh. Scroll down and find your image that you just uploaded and copy it's path shown to the right of each image:<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428517370552571fa88926.gif\" alt=\"enter image description here\" \/><\/p>\n<ul>\n<li>Go to Add Page  or Add Post page and from the editor click on the Image icon or press <kbd>Ctrl + G<\/kbd> and you would see a dialog box asking for image path, paste the image path that you copied in previous step and that's it, image will be shown in live preview below the editor:<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14285176465525730e530cc.gif\" alt=\"enter image description here\" \/><\/p>",
-			"savedraft": "savedraft",
-			"dated": "April 08, 2015 08:28 PM",
-			"slug": "how-to-add-images-to-posts-and-pages",
-			"status": "publised",
-			"addpost": "addpost",
-			"generated": "1",
-			"showbody": "1"
-		},
-		{
-			"title": "How to Add Disqus Commenting to Posts",
-			"tags": [
-				"disqus",
-				"post",
-				"tutorial"
-			],
-			"category": "Tutorial",
-			"body": "<p>If you notice, under each post on this blog there is Comments section powered by excellent <a href=\"https:\/\/disqus.com\/\">Disqus<\/a>:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/142843076855241fb037206.gif\" alt=\"enter image description here\" \/><\/p>\n<hr \/>\n<p>To add Disqus commenting to your blog, please follow these steps:<\/p>\n<ul>\n<li><a href=\"https:\/\/disqus.com\/\">Create an account on Disqus<\/a><\/li>\n<li>Once you have registered, login and then go to <a href=\"https:\/\/disqus.com\/admin\/create\/\">Add Disqus to your site<\/a> page and fill in the details of your blog<\/li>\n<\/ul>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284312345524218240bc8.png\" alt=\"enter image description here\" \/><\/p>\n<p>On the next page, choose <strong>Universal Code<\/strong> option:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/1428431430552422464a84a.gif\" alt=\"enter image description here\" \/><\/p>\n<p>They would give you bunch of code like:<\/p>\n<pre><code>&lt;div id=\"disqus_thread\"&gt;&lt;\/div&gt;\n&lt;script type=\"text\/javascript\"&gt;\n    \/* * * CONFIGURATION VARIABLES * * *\/\n    var disqus_shortname = 'bloggercms';\n\n    \/* * * DON'T EDIT BELOW THIS LINE * * *\/\n    (function() {\n        var dsq = document.createElement('script'); dsq.type = 'text\/javascript'; dsq.async = true;\n        dsq.src = '\/\/' + disqus_shortname + '.disqus.com\/embed.js';\n        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n    })();\n&lt;\/script&gt;\n&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=\"https:\/\/disqus.com\/?ref_noscript\" rel=\"nofollow\"&gt;comments powered by Disqus.&lt;\/a&gt;&lt;\/noscript&gt;<\/code><\/pre>\n<p>From that code, we are only interested in <strong>disqus_shortname<\/strong>. In above code it appears here:<\/p>\n<pre><code>var disqus_shortname = 'bloggercms';<\/code><\/pre>\n<p>In this case, our shortname is <strong>bloggercms<\/strong> (in your case, it will be different) which is all we need not whole code. We need to update this shortname (bloggercms) in BloggerCMS settings page to enable Disqus commenting.<\/p>\n<p>Go to Settings page and on General Settings tab specify your Disqus unique\/shortname for the <strong>Disqus Shortname<\/strong> field and hit Update button:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284319185524242e2c2cd.gif\" alt=\"enter image description here\" \/><\/p>\n<p>And that's it, your all posts will now have Disqus commenting below them. <\/p>\n<p><em>Note: Make sure to update your blog through Generate Blog button on the top.<\/em><\/p>\n<hr \/>\n<h2>Adding Disqus to Custom BloggerCMS Layouts<\/h2>\n<p>If you want create custom layout for BloggerCMS and want to add Disqus commenting, just put below snippet at appropriate place in post.mustache file:<\/p>\n<pre><code>&lt;!-- Comment form --&gt;\n&lt;div class=\"well\"&gt;\n    &lt;div id=\"disqus_thread\"&gt;&lt;\/div&gt;\n    &lt;script type=\"text\/javascript\"&gt;\n        var disqus_shortname = '{{settings.disqus}}'; \/\/ required: replace example with your forum shortname\n        \/* * * DON'T EDIT BELOW THIS LINE * * *\/\n        (function () {\n            var dsq = document.createElement('script');\n            dsq.type = 'text\/javascript';\n            dsq.async = true;\n            dsq.src = '\/\/' + disqus_shortname + '.disqus.com\/embed.js';\n            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n        })();\n    &lt;\/script&gt;\n    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=\"http:\/\/disqus.com\/?ref_noscript\"&gt;Comments\n        powered by Disqus.&lt;\/a&gt;&lt;\/noscript&gt;\n    &lt;a href=\"http:\/\/disqus.com\" class=\"dsq-brlink\"&gt;Comments powered by\n        &lt;span class=\"logo-disqus\"&gt;Disqus&lt;\/span&gt;&lt;\/a&gt;\n&lt;\/div&gt;<\/code><\/pre>",
-			"addpost": "addpost",
-			"dated": "April 07, 2015 07:52 PM",
-			"slug": "how-to-add-disqus-commenting-to-posts",
-			"status": "publised",
-			"generated": "1",
-			"showbody": "1"
-		},
-		{
-			"title": "Introducing BloggerCMS !",
-			"tags": [
-				"admin",
-				"bloggercms",
-				"cms",
-				"intro",
-				"php"
-			],
-			"category": "BloggerCMS",
-			"body": "<h2>Introduction<\/h2>\n<p>BloggerCMS is a CMS made in PHP that helps you create truly static blogs via provided admin panel interface; you don't need to create blog posts manually in text files or knowing <a href=\"http:\/\/en.wikipedia.org\/wiki\/Markdown\">Markdown<\/a> syntax unlike other static site generators which is time-consuming. The created blogs become fully portable without any dependencies such as database or any other complicated setups. All data of the blog gets stored in human readable JSON format. The web-based interface (admin panel) makes it very easy even for beginners to create and manage the blog. <\/p>\n<p>To deploy your blog, all you need is upload the static blog generated by BloggerCMS to your web host and see it in action. You don't need any server-side language support or database on your hosting provider because everything generated by BloggerCMS is pure HTML. You can also host your blog on <a href=\"https:\/\/pages.github.com\/\">Github<\/a> (this blog demo runs on github), <a href=\"http:\/\/www.dropboxwiki.com\/tips-and-tricks\/host-websites-with-dropbox\">Dropbox<\/a> or any other service you like. The good thing is that you can easily backup your blog too because it's just a folder containing your blog. <\/p>\n<p>BloggerCMS comes with fully responsive blog template based on famous <a href=\"http:\/\/getbootstrap.com\/\">Twitter Bootstrap<\/a> with quite few themes to choose from. You can also create your own blog layouts, all you need to know is HTML and basics of <a href=\"https:\/\/mustache.github.io\/\">Mustache<\/a> template engine.<\/p>\n<h2>Features<\/h2>\n<ul>\n<li><strong>Graphical User Interface<\/strong> - manage your site via a browser<\/li>\n<li><strong>File-based<\/strong> - no database required<\/li>\n<li><strong>Truly Static<\/strong> - no server-side languages needed<\/li>\n<li><strong>Portability<\/strong> - copy, move, backup or version control your site easily<\/li>\n<li><strong>Integrated Markdown Editor<\/strong> - no need to know Markdown<\/li>\n<li><strong>Built-in Images Manager<\/strong><\/li>\n<li><strong>Disqus Commenting System<\/strong><\/li>\n<li><strong>Search Posts Feature<\/strong><\/li>\n<li><strong>Pagination<\/strong><\/li>\n<li><strong>Responsive Layout<\/strong> - get started easily with the included responsive layout<\/li>\n<li><strong>RSS Support<\/strong><\/li>\n<li><strong>Sitemap Support<\/strong><\/li>\n<li><strong>Google Analytics<\/strong><\/li>\n<li><strong>Code Highlight Support<\/strong><\/li>\n<li><strong>Tags Cloud Support<\/strong><\/li>\n<li><strong>Social Follow Section<\/strong><\/li>\n<li><strong>Categories Section<\/strong><\/li>\n<li><strong>Archives Section<\/strong><\/li>\n<\/ul>\n<h2>Screenshots<\/h2>\n<p>Although, you can create your own custom layouts but here are screenshots for <strong>default<\/strong> layout with different themes:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049925523bb002de49.png\" alt=\"Default Theme\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049865523bafaea4be.png\" alt=\"Darkly Theme\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049955523bb0381ec8.png\" alt=\"Journal Theme\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049985523bb06b28d7.png\" alt=\"Slate Theme\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284050065523bb0e769a3.png\" alt=\"Yeti Theme\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284050035523bb0b5b371.png\" alt=\"Superhere Theme\" \/><\/p>\n<hr \/>\n<p>...and here are some of the screenshots for administration interface:<\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049565523badca2571.png\" alt=\"Dashboard\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049305523bac2f0d6c.png\" alt=\"Add Post\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049675523bae7ef288.png\" alt=\"View Posts\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049445523bad0ef14d.png\" alt=\"Categories\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049645523bae48759c.png\" alt=\"Tags\" \/><\/p>\n<p><img src=\"https:\/\/bloggercms.github.io\/images\/14284049615523bae133905.png\" alt=\"Images Manager\" \/><\/p>\n<hr \/>\n<h2>Getting Started<\/h2>\n<p><a href=\"https:\/\/bloggercms.github.io\/page\/get-started.html\">Read Getting Started Guide<\/a><\/p>",
-			"addpost": "addpost",
-			"dated": "April 06, 2015 02:44 PM",
-			"slug": "introducing-bloggercms",
-			"status": "publised",
 			"generated": "1",
 			"showbody": "1"
 		}
