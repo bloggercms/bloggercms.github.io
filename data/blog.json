@@ -42,6 +42,11 @@
 			"title": "Support",
 			"body": "<p>If you have any questions, suggests or feature requests, please don't hesitate to <a href=\"mailto:sarfraznawaz2005@gmail.com\">email<\/a> us. If you find any issues, please report them on <a href=\"https:\/\/github.com\/sarfraznawaz2005\/BloggerCMS\/issues\">Issues<\/a> page. Please check out the <a href=\"https:\/\/bloggercms.github.io\/category\/tutorial.html\">Tutorials<\/a> category to see helpful posts about BloggerCMS.<\/p>\n<p>If you are a developer, you can checkout the <a href=\"https:\/\/github.com\/sarfraznawaz2005\/BloggerCMS\">BloggerCMS Source<\/a> and contribute to it.<\/p>",
 			"slug": "support"
+		},
+		{
+			"title": "Donations",
+			"body": "<p>The author has put in efforts so that BloggerCMS is the easiest blog generator out there and can be used freely. Any donation made will be extremely supportive.<\/p>\n<p>In order to donate, please go to <a href=\"https:\/\/load.payoneer.com\/LoadToPage.aspx\">this page<\/a> and input email address <strong>sarfraznawaz2005@hotmail.com<\/strong> and proceed with your donation information. <\/p>\n<p>Thanks!<\/p>",
+			"slug": "donations"
 		}
 	],
 	"follow": {
